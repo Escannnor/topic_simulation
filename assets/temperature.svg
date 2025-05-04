@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Thermometer -->
+  <rect x="80" y="40" width="40" height="120" rx="20" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <circle cx="100" cy="170" r="20" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  
+  <!-- Mercury -->
+  <rect x="85" y="150" width="30" height="0" fill="#FF0000" id="mercury"/>
+  <circle cx="100" cy="170" r="15" fill="#FF0000" id="mercury-bulb"/>
+  
+  <!-- Temperature Scale -->
+  <line x1="120" y1="50" x2="130" y2="50" stroke="#333" stroke-width="2"/>
+  <text x="135" y="55" fill="#333" font-size="12">100°C</text>
+  
+  <line x1="120" y1="100" x2="130" y2="100" stroke="#333" stroke-width="2"/>
+  <text x="135" y="105" fill="#333" font-size="12">50°C</text>
+  
+  <line x1="120" y1="150" x2="130" y2="150" stroke="#333" stroke-width="2"/>
+  <text x="135" y="155" fill="#333" font-size="12">0°C</text>
+  
+  <!-- Heat Waves -->
+  <path d="M40 40 Q60 30 80 40 Q100 50 120 40" stroke="#FF4500" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M40 60 Q60 50 80 60 Q100 70 120 60" stroke="#FF4500" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M40 80 Q60 70 80 80 Q100 90 120 80" stroke="#FF4500" stroke-width="2" fill="none" opacity="0.5"/>
+  
+  <!-- Animation -->
+  <script type="text/javascript">
+    <![CDATA[
+      function animateMercury() {
+        const mercury = document.getElementById('mercury');
+        const height = Math.random() * 100;
+        mercury.setAttribute('height', height);
+        mercury.setAttribute('y', 150 - height);
+      }
+      setInterval(animateMercury, 2000);
+    ]]>
+  </script>
+</svg> 

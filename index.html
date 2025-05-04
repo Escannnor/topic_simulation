@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Simulations</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <h1>Scientific Simulations</h1>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="topic-selection">
+      <div class="topic-card" id="photosynthesis-topic">
+        <img src="assets/photosynthesis.svg" alt="Photosynthesis" class="topic-image">
+        <h3>Photosynthesis</h3>
+        <p>Learn how plants convert light energy into chemical energy through an interactive simulation.</p>
+        <button class="simulation-button" onclick="selectTopic('photosynthesis')">Start Learning</button>
+      </div>
+
+      <div class="topic-card" id="sound-waves-topic">
+        <img src="assets/sound-waves.svg" alt="Sound Waves" class="topic-image">
+        <h3>Sound Waves</h3>
+        <p>Explore how sound waves travel and interact through an interactive simulation.</p>
+        <button class="simulation-button" onclick="selectTopic('sound-waves')">Start Learning</button>
+      </div>
+
+      <div class="topic-card" id="temperature-topic">
+        <img src="assets/temperature.svg" alt="Temperature" class="topic-image">
+        <h3>Temperature</h3>
+        <p>Discover how temperature affects matter and energy through an interactive simulation.</p>
+        <button class="simulation-button" onclick="selectTopic('temperature')">Start Learning</button>
+      </div>
+
+      <div class="topic-card" id="digestive-system-topic">
+        <img src="assets/digestive-system.svg" alt="Digestive System" class="topic-image">
+        <h3>Digestive System</h3>
+        <p>Explore the human digestive system through an interactive step-by-step simulation.</p>
+        <button class="simulation-button" onclick="selectTopic('digestive-system')">Start Learning</button>
+      </div>
+    </div>
+
+    <div id="simulation-container" style="display: none;">
+      <div class="topic-info">
+        <h2 id="topic-name">Select a Topic</h2>
+        <img id="topic-image" src="" alt="Topic visualization">
+        <p id="topic-description">Choose a topic from the navigation to learn more.</p>
+      </div>
+
+      <!-- Photosynthesis Simulation -->
+      <section id="photosynthesis">
+        <h2>Photosynthesis Simulation</h2>
+        <div class="educational-content">
+          <h3>What is Photosynthesis?</h3>
+          <p>Photosynthesis is the process by which plants convert light energy into chemical energy. This process is essential for life on Earth as it produces oxygen and provides energy for plants to grow.</p>
+          <div class="key-concepts">
+            <h4>Key Concepts:</h4>
+            <ul>
+              <li>Light Energy: The primary source of energy for photosynthesis</li>
+              <li>Water: Provides hydrogen atoms needed for the process</li>
+              <li>Carbon Dioxide: Source of carbon atoms for glucose production</li>
+              <li>Oxygen: Released as a byproduct</li>
+              <li>Glucose: The main product used for plant growth</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="simulation-controls">
+          <label for="light-intensity">Light Intensity: </label>
+          <input type="range" id="light-intensity" name="light-intensity" min="0" max="100" value="50" title="Adjust the light intensity for photosynthesis">
+          <span id="light-value">50%</span>
+
+          <label for="water-level">Water Level: </label>
+          <input type="range" id="water-level" name="water-level" min="0" max="100" value="50" title="Adjust the water level for photosynthesis">
+          <span id="water-value">50%</span>
+
+          <label for="co2-level">CO₂ Level: </label>
+          <input type="range" id="co2-level" name="co2-level" min="0" max="100" value="50" title="Adjust the CO₂ level for photosynthesis">
+          <span id="co2-value">50%</span>
+
+          <button id="start-photosynthesis">Start Simulation</button>
+          <button id="reset-photosynthesis">Reset</button>
+        </div>
+
+        <div id="photosynthesis-results">
+          <div class="progress-container">
+            <div class="progress-label">
+              <span>Oxygen Production</span>
+              <span id="oxygen-value">0%</span>
+            </div>
+            <div id="oxygen-progress" class="progress"></div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-label">
+              <span>Glucose Production</span>
+              <span id="glucose-value">0%</span>
+            </div>
+            <div id="glucose-progress" class="progress"></div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-label">
+              <span>Plant Growth</span>
+              <span id="growth-value">0%</span>
+            </div>
+            <div id="growth-progress" class="progress"></div>
+          </div>
+        </div>
+
+        <div id="plant">
+          <div id="plant-roots"></div>
+          <div id="plant-stem"></div>
+          <div id="plant-leaves"></div>
+          <div id="sun-ray"></div>
+          <div id="water-droplets"></div>
+          <div id="co2-particles"></div>
+          <div id="o2-particles"></div>
+          <div id="glucose-indicators"></div>
+        </div>
+      </section>
+
+      <!-- Sound Waves Simulation -->
+      <section id="sound-waves" style="display: none;">
+        <h2>Sound Waves Simulation</h2>
+        <div class="educational-content">
+          <h3>Understanding Sound Waves</h3>
+          <p>Sound waves are vibrations that travel through a medium, such as air or water. They are characterized by their frequency, amplitude, and wavelength.</p>
+          <div class="key-concepts">
+            <h4>Key Concepts:</h4>
+            <ul>
+              <li>Frequency: Number of waves per second (measured in Hertz)</li>
+              <li>Amplitude: Height of the wave (determines volume)</li>
+              <li>Wavelength: Distance between wave peaks</li>
+              <li>Wave Interference: How waves interact when they meet</li>
+            </ul>
+          </div>
+          <div class="sound-waves-instructions">
+            <p>Adjust the controls to see how different frequencies and amplitudes affect the sound wave pattern.</p>
+          </div>
+        </div>
+        <div class="simulation-controls">
+          <label for="frequency-slider">Frequency (Hz): </label>
+          <input type="range" id="frequency-slider" name="frequency" min="20" max="2000" value="440" title="Adjust the frequency of the sound wave">
+          <span id="frequency-value">440 Hz</span>
+
+          <label for="amplitude-slider">Amplitude: </label>
+          <input type="range" id="amplitude-slider" name="amplitude" min="0" max="100" value="50" title="Adjust the amplitude of the sound wave">
+          <span id="amplitude-value">50%</span>
+
+          <button id="play-sound" class="simulation-button">Play Sound</button>
+          <button id="stop-sound" class="simulation-button">Stop Sound</button>
+        </div>
+        <canvas id="sound-waves-canvas" width="800" height="300" title="Interactive sound wave visualization"></canvas>
+      </section>
+
+      <!-- Temperature Simulation -->
+      <section id="temperature">
+        <h2>Temperature Simulation</h2>
+        <div class="educational-content">
+          <h3>Understanding Temperature</h3>
+          <p>Temperature is a measure of the average kinetic energy of particles in a substance. It affects physical and chemical changes in matter.</p>
+          <div class="key-concepts">
+            <h4>Key Concepts:</h4>
+            <ul>
+              <li>Kinetic Energy: Energy of motion in particles</li>
+              <li>Phase Changes: How temperature affects states of matter</li>
+              <li>Thermal Expansion: How materials expand with heat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="simulation-controls">
+          <label for="temperature-slider">Temperature: </label>
+          <input type="range" id="temperature-slider" name="temperature" min="-50" max="100" value="25" title="Adjust the temperature level">
+          <span id="temperature-value">25°C</span>
+          <p id="temperature-display">Current Temperature: 25°C</p>
+        </div>
+      </section>
+
+      <!-- Digestive System Simulation -->
+      <section id="digestive-system">
+        <h2>Digestive System Simulation</h2>
+        <div class="educational-content">
+          <h3>The Human Digestive System</h3>
+          <p>The digestive system breaks down food into nutrients that can be absorbed by the body. It's a complex process involving multiple organs working together.</p>
+          <div class="key-concepts">
+            <h4>Key Concepts:</h4>
+            <ul>
+              <li>Mechanical Digestion: Physical breakdown of food</li>
+              <li>Chemical Digestion: Enzymatic breakdown of food</li>
+              <li>Absorption: Nutrient uptake into the bloodstream</li>
+              <li>Elimination: Removal of waste products</li>
+            </ul>
+          </div>
+        </div>
+        <div class="simulation-controls">
+          <button id="start-digestion" title="Start the digestion process">Start Digestion</button>
+          <div id="digestion-stage"></div>
+          <div id="digestion-info"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="src/simulations.js"></script>
+</body>
+</html>
+

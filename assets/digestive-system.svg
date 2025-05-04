@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mouth -->
+  <path d="M50 50 Q75 40 100 50 Q125 60 150 50" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M50 50 Q75 60 100 50 Q125 40 150 50" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Esophagus -->
+  <path d="M100 50 L100 80" stroke="#333" stroke-width="4" fill="none"/>
+  
+  <!-- Stomach -->
+  <path d="M80 80 Q100 100 120 80 Q100 120 80 80" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  
+  <!-- Small Intestine -->
+  <path d="M120 80 Q140 100 160 80 Q180 100 160 120 Q140 140 120 120 Q100 140 80 120 Q60 100 80 80" 
+        fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Large Intestine -->
+  <path d="M60 100 L40 100 L40 140 L60 140" fill="none" stroke="#333" stroke-width="3"/>
+  
+  <!-- Labels -->
+  <text x="50" y="40" fill="#333" font-size="10">Mouth</text>
+  <text x="70" y="100" fill="#333" font-size="10">Stomach</text>
+  <text x="120" y="100" fill="#333" font-size="10">Small Intestine</text>
+  <text x="30" y="120" fill="#333" font-size="10">Large Intestine</text>
+  
+  <!-- Food Particles -->
+  <circle cx="100" cy="30" r="3" fill="#8B4513"/>
+  <circle cx="90" cy="35" r="2" fill="#8B4513"/>
+  <circle cx="110" cy="32" r="2.5" fill="#8B4513"/>
+  
+  <!-- Digestive Flow -->
+  <path d="M100 30 L100 50" stroke="#8B4513" stroke-width="1" stroke-dasharray="2,2"/>
+  <path d="M100 50 L100 80" stroke="#8B4513" stroke-width="1" stroke-dasharray="2,2"/>
+  <path d="M100 80 L120 80" stroke="#8B4513" stroke-width="1" stroke-dasharray="2,2"/>
+</svg> 

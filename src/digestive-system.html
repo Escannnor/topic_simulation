@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digestive System Simulation - Interactive Science</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <header class="sim-header">
+        <nav class="top-nav">
+            <a href="../index.html" class="home-link">← Back to Home</a>
+            <div class="sim-controls">
+                <button id="fullscreen-btn">Fullscreen</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="simulation-container">
+        <div class="simulation-area">
+            <div class="digestive-visualization">
+                <canvas id="digestive-canvas"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="food-type">Food Type</label>
+                    <select id="food-type">
+                        <option value="carbohydrate">Carbohydrate</option>
+                        <option value="protein">Protein</option>
+                        <option value="fat">Fat</option>
+                        <option value="fiber">Fiber</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="food-amount">Food Amount (g)</label>
+                    <input type="range" id="food-amount" min="50" max="500" value="200">
+                    <span class="value-display">200 g</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="digestion-speed">Digestion Speed</label>
+                    <select id="digestion-speed">
+                        <option value="slow">Slow</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="fast">Fast</option>
+                    </select>
+                </div>
+
+                <button id="start-btn" class="primary-btn">Start Digestion</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>About the Digestive System</h2>
+            <p>The digestive system breaks down food into nutrients that can be absorbed by the body. It's a complex process involving multiple organs working together.</p>
+            <div class="key-concepts">
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li><strong>Mechanical Digestion:</strong> Physical breakdown of food</li>
+                    <li><strong>Chemical Digestion:</strong> Enzymatic breakdown of food</li>
+                    <li><strong>Absorption:</strong> Nutrient uptake into the bloodstream</li>
+                    <li><strong>Elimination:</strong> Removal of waste products</li>
+                </ul>
+            </div>
+            <div class="digestive-organs">
+                <h3>Main Organs:</h3>
+                <ul>
+                    <li>Mouth: Mechanical and chemical digestion begins</li>
+                    <li>Esophagus: Transports food to stomach</li>
+                    <li>Stomach: Breaks down food with acids and enzymes</li>
+                    <li>Small Intestine: Nutrient absorption</li>
+                    <li>Large Intestine: Water absorption and waste formation</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="../src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeDigestiveSystemSimulation();
+        });
+    </script>
+</body>
+</html> 

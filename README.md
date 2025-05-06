@@ -1,64 +1,41 @@
-# Interactive Science Simulations
+# Interactive Scientific Simulations
 
-An interactive web application featuring educational simulations for various science topics including photosynthesis, heat transfer, temperature, and the digestive system.
+An educational web application featuring interactive simulations for various scientific concepts.
 
 ## Features
 
-- Interactive 3D topic cards
-- SVG-based visualizations
-- Real-time simulations
-- Educational content for each topic
-- Responsive design
+- **Photosynthesis Simulation**: Visualize how plants convert light energy into chemical energy
+- **Sound Waves**: Interactive sound wave visualization with real-time audio generation
+- **Temperature**: Learn about temperature effects on matter
+- **Digestive System**: Step-by-step simulation of the human digestive process
 
 ## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
+- Web Audio API
 - SVG Graphics
 
 ## Getting Started
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/simulation.git
-```
+1. Clone the repository
+2. Open `index.html` in your browser
+   - Or use a local server: `python -m http.server 8000`
+3. Select a topic to start learning
 
-2. Navigate to the project directory:
-```bash
-cd simulation
-```
+## Live Demo
 
-3. Start a local server:
-```bash
-python -m http.server 8000
-```
+Visit the live demo at: [Your Vercel URL]
 
-4. Open your browser and visit:
-```
-http://localhost:8000
-```
+## Future Topics
 
-## Project Structure
+The project is designed to be easily extensible. New topics can be added by:
+1. Creating a new topic card
+2. Adding the simulation section
+3. Implementing the simulation logic
+4. Adding the topic's SVG image
 
-```
-simulation/
-├── assets/
-│   ├── photosynthesis.svg
-│   ├── heatmap.svg
-│   ├── temperature.svg
-│   └── digestive-system.svg
-├── styles/
-│   └── styles.css
-├── src/
-│   └── simulations.js
-└── index.html
-```
+## License
 
-## Deployment
-
-This project is deployed on Vercel. Visit the live site at: [Your Vercel URL]
-
-## Contributing
-
-Feel free to submit issues and enhancement requests! 
+MIT License 

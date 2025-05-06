@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Heart Simulation - Interactive Science</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <header class="sim-header">
+        <nav class="top-nav">
+            <a href="../index.html" class="home-link">← Back to Home</a>
+            <div class="sim-controls">
+                <button id="fullscreen-btn">Fullscreen</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="simulation-container">
+        <div class="simulation-area">
+            <div class="heart-visualization">
+                <canvas id="heart-canvas"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="heart-rate">Heart Rate (BPM)</label>
+                    <input type="range" id="heart-rate" min="40" max="200" value="72">
+                    <span class="value-display">72 BPM</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="blood-pressure">Blood Pressure (mmHg)</label>
+                    <select id="blood-pressure">
+                        <option value="normal">Normal (120/80)</option>
+                        <option value="high">High (140/90)</option>
+                        <option value="low">Low (90/60)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="view-mode">View Mode</label>
+                    <select id="view-mode">
+                        <option value="external">External View</option>
+                        <option value="internal">Internal View</option>
+                        <option value="blood-flow">Blood Flow</option>
+                    </select>
+                </div>
+
+                <button id="start-btn" class="primary-btn">Start Simulation</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>About the Human Heart</h2>
+            <p>The heart is a muscular organ that pumps blood throughout the body, delivering oxygen and nutrients to tissues and removing waste products.</p>
+            <div class="key-concepts">
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li><strong>Cardiac Cycle:</strong> The heart's pumping action</li>
+                    <li><strong>Blood Flow:</strong> How blood moves through the heart</li>
+                    <li><strong>Heart Chambers:</strong> Atria and ventricles</li>
+                    <li><strong>Heart Valves:</strong> Control blood flow direction</li>
+                </ul>
+            </div>
+            <div class="heart-parts">
+                <h3>Main Parts of the Heart:</h3>
+                <ul>
+                    <li>Right Atrium: Receives deoxygenated blood</li>
+                    <li>Right Ventricle: Pumps blood to lungs</li>
+                    <li>Left Atrium: Receives oxygenated blood</li>
+                    <li>Left Ventricle: Pumps blood to body</li>
+                    <li>Valves: Prevent backflow of blood</li>
+                    <li>Coronary Arteries: Supply heart muscle</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="../src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeHumanHeartSimulation();
+        });
+    </script>
+</body>
+</html> 

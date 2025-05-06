@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Cycle Simulation - Interactive Science</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <header class="sim-header">
+        <nav class="top-nav">
+            <a href="../index.html" class="home-link">← Back to Home</a>
+            <div class="sim-controls">
+                <button id="fullscreen-btn">Fullscreen</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="simulation-container">
+        <div class="simulation-area">
+            <div class="water-cycle-visualization">
+                <canvas id="water-cycle-canvas"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="range" id="temperature" min="-10" max="40" value="25">
+                    <span class="value-display">25°C</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="humidity">Humidity (%)</label>
+                    <input type="range" id="humidity" min="0" max="100" value="50">
+                    <span class="value-display">50%</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="wind-speed">Wind Speed (km/h)</label>
+                    <input type="range" id="wind-speed" min="0" max="100" value="20">
+                    <span class="value-display">20 km/h</span>
+                </div>
+
+                <button id="start-btn" class="primary-btn">Start Simulation</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>About the Water Cycle</h2>
+            <p>The water cycle describes how water moves through Earth's atmosphere, oceans, and land. It's a continuous process that sustains life on our planet.</p>
+            <div class="key-concepts">
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li><strong>Evaporation:</strong> Water turning into vapor</li>
+                    <li><strong>Condensation:</strong> Vapor forming clouds</li>
+                    <li><strong>Precipitation:</strong> Water falling from clouds</li>
+                    <li><strong>Collection:</strong> Water gathering in bodies of water</li>
+                </ul>
+            </div>
+            <div class="cycle-stages">
+                <h3>Stages of the Water Cycle:</h3>
+                <ul>
+                    <li>Evaporation: Sun heats water into vapor</li>
+                    <li>Condensation: Vapor cools into clouds</li>
+                    <li>Precipitation: Water falls as rain/snow</li>
+                    <li>Runoff: Water flows over land</li>
+                    <li>Infiltration: Water seeps into ground</li>
+                    <li>Collection: Water gathers in oceans/lakes</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="../src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeWaterCycleSimulation();
+        });
+    </script>
+</body>
+</html> 

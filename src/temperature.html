@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Simulation</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Temperature Simulation</h1>
+            <p>Explore how temperature affects different materials and states of matter</p>
+        </header>
+
+        <div class="simulation-container">
+            <div class="controls">
+                <div class="control-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="range" id="temperature" min="-50" max="150" value="25" step="1">
+                    <span>25°C</span>
+                </div>
+                <div class="control-group">
+                    <label for="material">Material</label>
+                    <select id="material">
+                        <option value="water">Water</option>
+                        <option value="iron">Iron</option>
+                        <option value="aluminum">Aluminum</option>
+                        <option value="copper">Copper</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="volume">Volume (ml)</label>
+                    <input type="range" id="volume" min="100" max="1000" value="500" step="100">
+                    <span>500 ml</span>
+                </div>
+                <button id="start-btn">Start Simulation</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+
+            <div class="simulation">
+                <canvas id="temperature-canvas"></canvas>
+                <div id="info-panel">
+                    <h3>Material Properties</h3>
+                    <div id="material-info">
+                        <p>State: <span id="state">Liquid</span></p>
+                        <p>Density: <span id="density">1.0 g/cm³</span></p>
+                        <p>Specific Heat: <span id="specific-heat">4.18 J/g°C</span></p>
+                        <p>Thermal Conductivity: <span id="conductivity">0.6 W/m°C</span></p>
+                    </div>
+                    <div id="temperature-effects">
+                        <h4>Effects</h4>
+                        <ul id="effects-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../src/simulations.js"></script>
+    <script>
+        // Initialize temperature simulation
+        const tempSim = new TemperatureSimulation();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Waves Simulation - Interactive Science</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <header class="sim-header">
+        <nav class="top-nav">
+            <a href="../index.html" class="home-link">← Back to Home</a>
+            <div class="sim-controls">
+                <button id="fullscreen-btn">Fullscreen</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="simulation-container">
+        <div class="simulation-area">
+            <div class="wave-visualization">
+                <canvas id="wave-canvas"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="frequency">Frequency (Hz)</label>
+                    <input type="range" id="frequency" min="20" max="20000" value="440">
+                    <span class="value-display">440 Hz</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="amplitude">Amplitude</label>
+                    <input type="range" id="amplitude" min="0" max="100" value="50">
+                    <span class="value-display">50%</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="wave-type">Wave Type</label>
+                    <select id="wave-type">
+                        <option value="sine">Sine Wave</option>
+                        <option value="square">Square Wave</option>
+                        <option value="triangle">Triangle Wave</option>
+                        <option value="sawtooth">Sawtooth Wave</option>
+                    </select>
+                </div>
+
+                <button id="play-btn" class="primary-btn">Play Sound</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>About Sound Waves</h2>
+            <p>Sound waves are longitudinal waves that travel through a medium, such as air or water. They are created by vibrating objects and can be characterized by their:</p>
+            <ul>
+                <li><strong>Frequency:</strong> The number of complete waves that pass a point per second (measured in Hertz)</li>
+                <li><strong>Amplitude:</strong> The height of the wave, which determines the volume</li>
+                <li><strong>Waveform:</strong> The shape of the wave, which affects the timbre of the sound</li>
+            </ul>
+            <div class="key-concepts">
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li>Frequency: Number of waves per second (measured in Hertz)</li>
+                    <li>Amplitude: Height of the wave (determines volume)</li>
+                    <li>Wavelength: Distance between wave peaks</li>
+                    <li>Wave Interference: How waves interact when they meet</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="../src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSoundWaveSimulation();
+        });
+    </script>
+</body>
+</html> 

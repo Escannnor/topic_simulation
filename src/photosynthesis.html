@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photosynthesis Simulation - Interactive Science</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <header class="sim-header">
+        <nav class="top-nav">
+            <a href="../index.html" class="home-link">← Back to Home</a>
+            <div class="sim-controls">
+                <button id="fullscreen-btn">Fullscreen</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="simulation-container">
+        <div class="simulation-area">
+            <div class="plant-visualization">
+                <canvas id="plant-canvas"></canvas>
+            </div>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="light-intensity">Light Intensity</label>
+                    <input type="range" id="light-intensity" min="0" max="100" value="50">
+                    <span class="value-display">50%</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="co2-level">CO₂ Level</label>
+                    <input type="range" id="co2-level" min="0" max="100" value="50">
+                    <span class="value-display">50%</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="water-level">Water Level</label>
+                    <input type="range" id="water-level" min="0" max="100" value="50">
+                    <span class="value-display">50%</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="range" id="temperature" min="0" max="40" value="25">
+                    <span class="value-display">25°C</span>
+                </div>
+
+                <button id="start-btn" class="primary-btn">Start Simulation</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>About Photosynthesis</h2>
+            <p>Photosynthesis is the process by which plants convert light energy into chemical energy. The process involves:</p>
+            <ul>
+                <li><strong>Light Energy:</strong> Captured by chlorophyll in plant cells</li>
+                <li><strong>Carbon Dioxide:</strong> Taken from the air</li>
+                <li><strong>Water:</strong> Absorbed through the roots</li>
+                <li><strong>Products:</strong> Glucose and oxygen</li>
+            </ul>
+            <div class="key-concepts">
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li>Light Energy: The primary source of energy for photosynthesis</li>
+                    <li>Water: Provides hydrogen atoms needed for the process</li>
+                    <li>Carbon Dioxide: Source of carbon atoms for glucose production</li>
+                    <li>Oxygen: Released as a byproduct</li>
+                    <li>Glucose: The main product used for plant growth</li>
+                </ul>
+            </div>
+            <div class="reaction-equation">
+                <p>6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePhotosynthesisSimulation();
+        });
+    </script>
+</body>
+</html> 

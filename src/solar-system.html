@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Simulation</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Solar System Simulation</h1>
+            <p>Explore the planets and their orbits around the Sun</p>
+        </header>
+
+        <div class="simulation-container">
+            <div class="controls">
+                <div class="control-group">
+                    <label for="time-scale">Time Scale</label>
+                    <input type="range" id="time-scale" min="1" max="100" value="10" step="1">
+                    <span>10x</span>
+                </div>
+                <div class="control-group">
+                    <label for="view-mode">View Mode</label>
+                    <select id="view-mode">
+                        <option value="top">Top View</option>
+                        <option value="side">Side View</option>
+                        <option value="3d">3D View</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="planet-focus">Focus Planet</label>
+                    <select id="planet-focus">
+                        <option value="sun">Sun</option>
+                        <option value="mercury">Mercury</option>
+                        <option value="venus">Venus</option>
+                        <option value="earth">Earth</option>
+                        <option value="mars">Mars</option>
+                        <option value="jupiter">Jupiter</option>
+                        <option value="saturn">Saturn</option>
+                        <option value="uranus">Uranus</option>
+                        <option value="neptune">Neptune</option>
+                    </select>
+                </div>
+                <button id="start-btn">Start Simulation</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+
+            <div class="simulation">
+                <canvas id="solar-system-canvas"></canvas>
+                <div id="info-panel">
+                    <h3>Planet Information</h3>
+                    <div id="planet-info">
+                        <p>Name: <span id="planet-name">Sun</span></p>
+                        <p>Distance from Sun: <span id="planet-distance">0 AU</span></p>
+                        <p>Orbital Period: <span id="orbital-period">0 days</span></p>
+                        <p>Diameter: <span id="planet-diameter">0 km</span></p>
+                    </div>
+                    <div id="planet-description">
+                        <h4>Description</h4>
+                        <p id="description-text">Select a planet to see its description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../src/simulations.js"></script>
+    <script>
+        // Initialize solar system simulation
+        const solarSim = new SolarSystemSimulation();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f0f8ff" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- Sun -->
+  <circle cx="100" cy="100" r="20" fill="#FFC107"/>
+  <g stroke="#FFC107" stroke-width="2" opacity="0.6">
+    <line x1="70" y1="100" x2="130" y2="100"/>
+    <line x1="100" y1="70" x2="100" y2="130"/>
+    <line x1="75" y1="75" x2="125" y2="125"/>
+    <line x1="75" y1="125" x2="125" y2="75"/>
+  </g>
+  
+  <!-- Orbits -->
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="100" r="65" fill="none" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Planets -->
+  <circle cx="135" cy="100" r="5" fill="#A9A9A9"/> <!-- Mercury -->
+  <circle cx="150" cy="100" r="7" fill="#DEB887"/> <!-- Venus -->
+  <circle cx="165" cy="100" r="8" fill="#4169E1"/> <!-- Earth -->
+  <circle cx="180" cy="100" r="6" fill="#CD5C5C"/> <!-- Mars -->
+  
+  <!-- Decorative stars -->
+  <g fill="#4CAF50" opacity="0.6">
+    <circle cx="50" cy="50" r="1"/>
+    <circle cx="150" cy="30" r="1"/>
+    <circle cx="30" cy="150" r="1"/>
+    <circle cx="170" cy="170" r="1"/>
+    <circle cx="40" cy="100" r="1"/>
+    <circle cx="160" cy="40" r="1"/>
+  </g>
+</svg> 

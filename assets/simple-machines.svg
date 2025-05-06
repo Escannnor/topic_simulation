@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f0f8ff" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- Lever -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="100" height="10" fill="#4CAF50" rx="5"/>
+    <circle cx="50" cy="5" r="8" fill="#2196F3"/>
+  </g>
+  
+  <!-- Pulley -->
+  <g transform="translate(120, 40)">
+    <circle cx="20" cy="20" r="15" fill="none" stroke="#4CAF50" stroke-width="3"/>
+    <circle cx="20" cy="20" r="5" fill="#4CAF50"/>
+    <path d="M20,5 L20,35" stroke="#4CAF50" stroke-width="2"/>
+    <path d="M5,20 L35,20" stroke="#4CAF50" stroke-width="2"/>
+  </g>
+  
+  <!-- Wheel and Axle -->
+  <g transform="translate(40, 120)">
+    <circle cx="30" cy="30" r="25" fill="none" stroke="#4CAF50" stroke-width="3"/>
+    <circle cx="30" cy="30" r="8" fill="#4CAF50"/>
+    <line x1="30" y1="5" x2="30" y2="55" stroke="#4CAF50" stroke-width="3"/>
+    <line x1="5" y1="30" x2="55" y2="30" stroke="#4CAF50" stroke-width="3"/>
+  </g>
+  
+  <!-- Inclined Plane -->
+  <g transform="translate(100, 100)">
+    <path d="M0,0 L40,30 L40,40 L0,10 Z" fill="#4CAF50"/>
+    <circle cx="20" cy="20" r="5" fill="#2196F3"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="5" fill="#4CAF50"/>
+  <circle cx="100" cy="100" r="10" fill="none" stroke="#4CAF50" stroke-width="1" opacity="0.5"/>
+  <circle cx="100" cy="100" r="15" fill="none" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+</svg> 

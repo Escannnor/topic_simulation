@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f0f8ff" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- Test tubes -->
+  <g transform="translate(50,50)">
+    <!-- Left test tube -->
+    <path d="M0,0 L20,0 L20,60 L0,60 Z" fill="#2196F3" opacity="0.7"/>
+    <path d="M0,60 L20,60 L15,80 L5,80 Z" fill="#2196F3"/>
+    
+    <!-- Right test tube -->
+    <path d="M40,0 L60,0 L60,60 L40,60 Z" fill="#FFC107" opacity="0.7"/>
+    <path d="M40,60 L60,60 L55,80 L45,80 Z" fill="#FFC107"/>
+  </g>
+  
+  <!-- Reaction arrow -->
+  <path d="M70,100 L130,100" stroke="#4CAF50" stroke-width="3" fill="none"/>
+  <path d="M120,95 L130,100 L120,105" fill="#4CAF50"/>
+  
+  <!-- Product -->
+  <circle cx="160" cy="100" r="20" fill="#4CAF50" opacity="0.7"/>
+  
+  <!-- Bubbles -->
+  <g stroke="#4CAF50" stroke-width="2" fill="none">
+    <circle cx="160" cy="80" r="5" opacity="0.6"/>
+    <circle cx="170" cy="90" r="3" opacity="0.8"/>
+    <circle cx="150" cy="85" r="4" opacity="0.7"/>
+  </g>
+</svg> 

@@ -3,237 +3,255 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scientific Simulations</title>
+  <title>ScienceSim - Interactive Science Education</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/simulation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-logo">
-      <h1>Scientific Simulations</h1>
+    <div class="nav-content">
+      <a href="index.html" class="logo">
+        <i class="fas fa-atom"></i>
+        ScienceSim
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <div class="chapter-dropdown">
+          <button class="chapter-btn">Physics <i class="fas fa-chevron-down"></i></button>
+          <div class="chapter-content">
+            <a href="src/sound-waves.html">Sound Waves</a>
+            <a href="src/light-optics.html">Light and Optics</a>
+            <a href="src/electricity.html">Electricity</a>
+            <a href="src/motion.html">Motion</a>
+            <a href="src/energy.html">Energy</a>
+            <a href="src/gravity.html">Gravity</a>
+            <a href="src/magnetism.html">Magnetism</a>
+          </div>
+        </div>
+        <div class="chapter-dropdown">
+          <button class="chapter-btn">Chemistry <i class="fas fa-chevron-down"></i></button>
+          <div class="chapter-content">
+            <a href="src/chemical-reaction.html">Chemical Reactions</a>
+            <a href="src/atomic-structure.html">Atomic Structure</a>
+            <a href="src/periodic-table.html">Periodic Table</a>
+            <a href="src/acids-bases.html">Acids and Bases</a>
+            <a href="src/states-matter.html">States of Matter</a>
+            <a href="src/chemical-bonding.html">Chemical Bonding</a>
+            <a href="src/stoichiometry.html">Stoichiometry</a>
+          </div>
+        </div>
+        <div class="chapter-dropdown">
+          <button class="chapter-btn">Biology <i class="fas fa-chevron-down"></i></button>
+          <div class="chapter-content">
+            <a href="src/photosynthesis.html">Photosynthesis</a>
+            <a href="src/aerobic-respiration.html">Aerobic Respiration</a>
+            <a href="src/anaerobic-respiration.html">Anaerobic Respiration</a>
+            <a href="src/digestive-system.html">Digestive System</a>
+            <a href="src/human-heart.html">Human Heart</a>
+            <a href="src/cell-structure.html">Cell Structure</a>
+            <a href="src/dna.html">DNA and Genetics</a>
+            <a href="src/evolution.html">Evolution</a>
+            <a href="src/ecosystem.html">Ecosystems</a>
+          </div>
+        </div>
+        <div class="chapter-dropdown">
+          <button class="chapter-btn">Earth Science <i class="fas fa-chevron-down"></i></button>
+          <div class="chapter-content">
+            <a href="src/temperature.html">Temperature</a>
+            <a href="src/acid-rain.html">Acid Rain</a>
+            <a href="src/weather.html">Weather Systems</a>
+            <a href="src/plate-tectonics.html">Plate Tectonics</a>
+            <a href="src/rock-cycle.html">Rock Cycle</a>
+            <a href="src/water-cycle.html">Water Cycle</a>
+            <a href="src/climate-change.html">Climate Change</a>
+            <a href="src/natural-resources.html">Natural Resources</a>
+          </div>
+        </div>
+        <a href="src/about.html">About</a>
+        <a href="src/contact.html">Contact</a>
+      </div>
     </div>
   </nav>
 
-  <div class="main-content">
-    <div class="topic-selection">
-      <div class="topic-card" id="photosynthesis-topic">
-        <img src="assets/photosynthesis.svg" alt="Photosynthesis" class="topic-image">
-        <h3>Photosynthesis</h3>
-        <p>Learn how plants convert light energy into chemical energy through an interactive simulation.</p>
-        <a href="src/photosynthesis.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="sound-waves-topic">
-        <img src="assets/sound-waves.svg" alt="Sound Waves" class="topic-image">
-        <h3>Sound Waves</h3>
-        <p>Explore how sound waves travel and interact through an interactive simulation.</p>
-        <a href="src/sound-waves.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="temperature-topic">
-        <img src="assets/temperature.svg" alt="Temperature" class="topic-image">
-        <h3>Temperature</h3>
-        <p>Discover how temperature affects matter and energy through an interactive simulation.</p>
-        <a href="src/temperature.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="digestive-system-topic">
-        <img src="assets/digestive-system.svg" alt="Digestive System" class="topic-image">
-        <h3>Digestive System</h3>
-        <p>Explore the human digestive system through an interactive step-by-step simulation.</p>
-        <a href="src/digestive-system.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="simple-machines-topic">
-        <img src="assets/simple-machines.svg" alt="Simple Machines" class="topic-image">
-        <h3>Simple Machines</h3>
-        <p>Discover how simple machines make work easier through interactive experiments.</p>
-        <a href="src/simple-machines.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="water-cycle-topic">
-        <img src="assets/water-cycle.svg" alt="Water Cycle" class="topic-image">
-        <h3>Water Cycle</h3>
-        <p>Explore the continuous movement of water through Earth's systems.</p>
-        <a href="src/water-cycle.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="solar-system-topic">
-        <img src="assets/solar-system.svg" alt="Solar System" class="topic-image">
-        <h3>Solar System</h3>
-        <p>Journey through our solar system and learn about planets and their orbits.</p>
-        <a href="src/solar-system.html" class="simulation-button">Start Learning</a>
-      </div>
-
-      <div class="topic-card" id="human-heart-topic">
-        <img src="assets/human-heart.svg" alt="Human Heart" class="topic-image">
-        <h3>Human Heart</h3>
-        <p>Explore the human heart and understand how it pumps blood through the body.</p>
-        <a href="src/human-heart.html" class="simulation-button">Start Learning</a>
+  <main>
+    <div class="hero-section">
+      <h1>Welcome to ScienceSim</h1>
+      <p>Interactive Science Education Platform</p>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for topics...">
+        <button id="search-btn"><i class="fas fa-search"></i></button>
       </div>
     </div>
 
-    <div id="simulation-container" style="display: none;">
-      <div class="topic-info">
-        <h2 id="topic-name">Select a Topic</h2>
-        <img id="topic-image" src="" alt="Topic visualization">
-        <p id="topic-description">Choose a topic from the navigation to learn more.</p>
+    <div class="features-section">
+      <div class="feature-card">
+        <i class="fas fa-flask"></i>
+        <h2>Interactive Simulations</h2>
+        <p>Engage with hands-on experiments and simulations that bring scientific concepts to life. Experience physics, chemistry, biology, and earth science through interactive visualizations.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-book"></i>
+        <h2>Comprehensive Content</h2>
+        <p>Access a wide range of topics covering Physics, Chemistry, Biology, and Earth Science. Each subject is carefully curated with detailed explanations and real-world applications.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h2>Educational Resources</h2>
+        <p>Benefit from detailed explanations, learning materials, and assessment tools designed to enhance your understanding of scientific concepts.</p>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="topic-section">
+        <h2><i class="fas fa-atom"></i> Physics</h2>
+        <div class="topic-grid">
+          <div class="topic-card" id="sound-waves-topic">
+            <img src="assets/sound-waves.svg" alt="Sound Waves" class="topic-image">
+            <h3>Sound Waves</h3>
+            <p>Explore the properties and behavior of sound waves through interactive simulations.</p>
+            <a href="src/sound-waves.html" class="simulation-button">Start Learning</a>
+          </div>
+          <div class="topic-card" id="light-optics-topic">
+            <img src="assets/light-optics.svg" alt="Light and Optics" class="topic-image">
+            <h3>Light and Optics</h3>
+            <p>Discover how light interacts with different materials and optical systems.</p>
+            <a href="src/light-optics.html" class="simulation-button">Start Learning</a>
+          </div>
+          <div class="topic-card" id="electricity-topic">
+            <img src="assets/electricity.svg" alt="Electricity" class="topic-image">
+            <h3>Electricity</h3>
+            <p>Learn about electrical circuits, current, voltage, and resistance.</p>
+            <a href="src/electricity.html" class="simulation-button">Start Learning</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Photosynthesis Simulation -->
-      <section id="photosynthesis">
-        <h2>Photosynthesis Simulation</h2>
-        <div class="educational-content">
-          <h3>What is Photosynthesis?</h3>
-          <p>Photosynthesis is the process by which plants convert light energy into chemical energy. This process is essential for life on Earth as it produces oxygen and provides energy for plants to grow.</p>
-          <div class="key-concepts">
-            <h4>Key Concepts:</h4>
-            <ul>
-              <li>Light Energy: The primary source of energy for photosynthesis</li>
-              <li>Water: Provides hydrogen atoms needed for the process</li>
-              <li>Carbon Dioxide: Source of carbon atoms for glucose production</li>
-              <li>Oxygen: Released as a byproduct</li>
-              <li>Glucose: The main product used for plant growth</li>
-            </ul>
+      <div class="topic-section">
+        <h2><i class="fas fa-flask"></i> Chemistry</h2>
+        <div class="topic-grid">
+          <div class="topic-card" id="chemical-reaction-topic">
+            <img src="assets/chemical-reaction.svg" alt="Chemical Reactions" class="topic-image">
+            <h3>Chemical Reactions</h3>
+            <p>Explore different types of chemical reactions and their applications.</p>
+            <a href="src/chemical-reaction.html" class="simulation-button">Start Learning</a>
+          </div>
+          <div class="topic-card" id="atomic-structure-topic">
+            <img src="assets/atomic-structure.svg" alt="Atomic Structure" class="topic-image">
+            <h3>Atomic Structure</h3>
+            <p>Understand the building blocks of matter and atomic models.</p>
+            <a href="src/atomic-structure.html" class="simulation-button">Start Learning</a>
           </div>
         </div>
+      </div>
 
-        <div class="simulation-controls">
-          <label for="light-intensity">Light Intensity: </label>
-          <input type="range" id="light-intensity" name="light-intensity" min="0" max="100" value="50" title="Adjust the light intensity for photosynthesis">
-          <span id="light-value">50%</span>
-
-          <label for="water-level">Water Level: </label>
-          <input type="range" id="water-level" name="water-level" min="0" max="100" value="50" title="Adjust the water level for photosynthesis">
-          <span id="water-value">50%</span>
-
-          <label for="co2-level">CO₂ Level: </label>
-          <input type="range" id="co2-level" name="co2-level" min="0" max="100" value="50" title="Adjust the CO₂ level for photosynthesis">
-          <span id="co2-value">50%</span>
-
-          <button id="start-photosynthesis">Start Simulation</button>
-          <button id="reset-photosynthesis">Reset</button>
-        </div>
-
-        <div id="photosynthesis-results">
-          <div class="progress-container">
-            <div class="progress-label">
-              <span>Oxygen Production</span>
-              <span id="oxygen-value">0%</span>
-            </div>
-            <div id="oxygen-progress" class="progress"></div>
+      <div class="topic-section">
+        <h2><i class="fas fa-dna"></i> Biology</h2>
+        <div class="topic-grid">
+          <div class="topic-card" id="photosynthesis-topic">
+            <img src="assets/photosynthesis.svg" alt="Photosynthesis" class="topic-image">
+            <h3>Photosynthesis</h3>
+            <p>Learn how plants convert light energy into chemical energy.</p>
+            <a href="src/photosynthesis.html" class="simulation-button">Start Learning</a>
           </div>
-          <div class="progress-container">
-            <div class="progress-label">
-              <span>Glucose Production</span>
-              <span id="glucose-value">0%</span>
-            </div>
-            <div id="glucose-progress" class="progress"></div>
-          </div>
-          <div class="progress-container">
-            <div class="progress-label">
-              <span>Plant Growth</span>
-              <span id="growth-value">0%</span>
-            </div>
-            <div id="growth-progress" class="progress"></div>
+          <div class="topic-card" id="digestive-system-topic">
+            <img src="assets/digestive-system.svg" alt="Digestive System" class="topic-image">
+            <h3>Digestive System</h3>
+            <p>Explore the human digestive system and its functions.</p>
+            <a href="src/digestive-system.html" class="simulation-button">Start Learning</a>
           </div>
         </div>
+      </div>
 
-        <div id="plant">
-          <div id="plant-roots"></div>
-          <div id="plant-stem"></div>
-          <div id="plant-leaves"></div>
-          <div id="sun-ray"></div>
-          <div id="water-droplets"></div>
-          <div id="co2-particles"></div>
-          <div id="o2-particles"></div>
-          <div id="glucose-indicators"></div>
-        </div>
-      </section>
-
-      <!-- Sound Waves Simulation -->
-      <section id="sound-waves" style="display: none;">
-        <h2>Sound Waves Simulation</h2>
-        <div class="educational-content">
-          <h3>Understanding Sound Waves</h3>
-          <p>Sound waves are vibrations that travel through a medium, such as air or water. They are characterized by their frequency, amplitude, and wavelength.</p>
-          <div class="key-concepts">
-            <h4>Key Concepts:</h4>
-            <ul>
-              <li>Frequency: Number of waves per second (measured in Hertz)</li>
-              <li>Amplitude: Height of the wave (determines volume)</li>
-              <li>Wavelength: Distance between wave peaks</li>
-              <li>Wave Interference: How waves interact when they meet</li>
-            </ul>
+      <div class="topic-section">
+        <h2><i class="fas fa-globe-americas"></i> Earth Science</h2>
+        <div class="topic-grid">
+          <div class="topic-card" id="water-cycle-topic">
+            <img src="assets/water-cycle.svg" alt="Water Cycle" class="topic-image">
+            <h3>Water Cycle</h3>
+            <p>Understand the continuous movement of water on Earth.</p>
+            <a href="src/water-cycle.html" class="simulation-button">Start Learning</a>
           </div>
-          <div class="sound-waves-instructions">
-            <p>Adjust the controls to see how different frequencies and amplitudes affect the sound wave pattern.</p>
+          <div class="topic-card" id="plate-tectonics-topic">
+            <img src="assets/plate-tectonics.svg" alt="Plate Tectonics" class="topic-image">
+            <h3>Plate Tectonics</h3>
+            <p>Learn about Earth's crustal movements and their effects.</p>
+            <a href="src/plate-tectonics.html" class="simulation-button">Start Learning</a>
           </div>
         </div>
-        <div class="simulation-controls">
-          <label for="frequency-slider">Frequency (Hz): </label>
-          <input type="range" id="frequency-slider" name="frequency" min="20" max="2000" value="440" title="Adjust the frequency of the sound wave">
-          <span id="frequency-value">440 Hz</span>
-
-          <label for="amplitude-slider">Amplitude: </label>
-          <input type="range" id="amplitude-slider" name="amplitude" min="0" max="100" value="50" title="Adjust the amplitude of the sound wave">
-          <span id="amplitude-value">50%</span>
-
-          <button id="play-sound" class="simulation-button">Play Sound</button>
-          <button id="stop-sound" class="simulation-button">Stop Sound</button>
-        </div>
-        <canvas id="sound-waves-canvas" width="800" height="300" title="Interactive sound wave visualization"></canvas>
-      </section>
-
-      <!-- Temperature Simulation -->
-      <section id="temperature">
-        <h2>Temperature Simulation</h2>
-        <div class="educational-content">
-          <h3>Understanding Temperature</h3>
-          <p>Temperature is a measure of the average kinetic energy of particles in a substance. It affects physical and chemical changes in matter.</p>
-          <div class="key-concepts">
-            <h4>Key Concepts:</h4>
-            <ul>
-              <li>Kinetic Energy: Energy of motion in particles</li>
-              <li>Phase Changes: How temperature affects states of matter</li>
-              <li>Thermal Expansion: How materials expand with heat</li>
-            </ul>
-          </div>
-        </div>
-        <div class="simulation-controls">
-          <label for="temperature-slider">Temperature: </label>
-          <input type="range" id="temperature-slider" name="temperature" min="-50" max="100" value="25" title="Adjust the temperature level">
-          <span id="temperature-value">25°C</span>
-          <p id="temperature-display">Current Temperature: 25°C</p>
-        </div>
-      </section>
-
-      <!-- Digestive System Simulation -->
-      <section id="digestive-system">
-        <h2>Digestive System Simulation</h2>
-        <div class="educational-content">
-          <h3>The Human Digestive System</h3>
-          <p>The digestive system breaks down food into nutrients that can be absorbed by the body. It's a complex process involving multiple organs working together.</p>
-          <div class="key-concepts">
-            <h4>Key Concepts:</h4>
-            <ul>
-              <li>Mechanical Digestion: Physical breakdown of food</li>
-              <li>Chemical Digestion: Enzymatic breakdown of food</li>
-              <li>Absorption: Nutrient uptake into the bloodstream</li>
-              <li>Elimination: Removal of waste products</li>
-            </ul>
-          </div>
-        </div>
-        <div class="simulation-controls">
-          <button id="start-digestion" title="Start the digestion process">Start Digestion</button>
-          <div id="digestion-stage"></div>
-          <div id="digestion-info"></div>
-        </div>
-      </section>
+      </div>
     </div>
-  </div>
+  </main>
 
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About ScienceSim</h3>
+        <p>An interactive platform for learning science through simulations and experiments.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="src/about.html">About Us</a></li>
+          <li><a href="src/contact.html">Contact</a></li>
+          <li><a href="src/privacy.html">Privacy Policy</a></li>
+          <li><a href="src/terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/utils.js"></script>
   <script src="src/simulations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize search functionality
+      const searchInput = document.getElementById('search-input');
+      const searchBtn = document.getElementById('search-btn');
+      
+      searchBtn.addEventListener('click', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const topicCards = document.querySelectorAll('.topic-card');
+        
+        topicCards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const description = card.querySelector('p').textContent.toLowerCase();
+          const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+          
+          if (title.includes(searchTerm) || 
+              description.includes(searchTerm) || 
+              tags.some(tag => tag.includes(searchTerm))) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+      // Initialize dropdown menus
+      const dropdowns = document.querySelectorAll('.chapter-dropdown');
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('.chapter-btn');
+        const content = dropdown.querySelector('.chapter-content');
+        
+        button.addEventListener('click', () => {
+          content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 

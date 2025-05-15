@@ -39,18 +39,18 @@ function initializePhotosynthesisElements() {
 
     // Only initialize if we're on the photosynthesis page and have the required elements
     if (elements.lightSlider && elements.waterSlider && elements.co2Slider) {
-        const updateDisplay = () => {
+const updateDisplay = () => {
             if (elements.lightValue) elements.lightValue.textContent = elements.lightSlider?.value + "%";
             if (elements.waterValue) elements.waterValue.textContent = elements.waterSlider?.value + "%";
             if (elements.co2Value) elements.co2Value.textContent = elements.co2Slider?.value + "%";
-        };
+};
 
-        // Update values on slider input
+// Update values on slider input
         [elements.lightSlider, elements.waterSlider, elements.co2Slider].forEach(slider => {
-            if (slider) {
-                slider.addEventListener("input", updateDisplay);
-            }
-        });
+  if (slider) {
+    slider.addEventListener("input", updateDisplay);
+  }
+});
 
         // Initialize start button
         if (elements.startButton) {
@@ -270,10 +270,10 @@ class SoundWaveSimulation {
         const type = this.waveTypeControl.value;
         
         // Draw wave
-        ctx.beginPath();
-        ctx.strokeStyle = '#4CAF50';
-        ctx.lineWidth = 2;
-        
+    ctx.beginPath();
+    ctx.strokeStyle = '#4CAF50';
+    ctx.lineWidth = 2;
+
         for (let x = 0; x < width; x++) {
             const t = x / width;
             let y;
@@ -293,14 +293,14 @@ class SoundWaveSimulation {
                     break;
             }
             
-            if (x === 0) {
-                ctx.moveTo(x, y);
-            } else {
-                ctx.lineTo(x, y);
-            }
-        }
-        
-        ctx.stroke();
+      if (x === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+
+    ctx.stroke();
     }
     
     togglePlay() {
@@ -604,34 +604,34 @@ document.addEventListener('DOMContentLoaded', () => {
         initializePhotosynthesisElements();
     }
 
-    // Add click event listeners to all topic cards
-    document.querySelectorAll('.topic-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const topicId = card.id.replace('-topic', '');
-            selectTopic(topicId);
-        });
+  // Add click event listeners to all topic cards
+  document.querySelectorAll('.topic-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const topicId = card.id.replace('-topic', '');
+      selectTopic(topicId);
     });
+  });
 
-    // Add hover effects to interactive elements
-    document.querySelectorAll('.interactive-element').forEach(element => {
-        element.addEventListener('mousemove', (e) => {
-            const rect = element.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-        
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-        });
+  // Add hover effects to interactive elements
+  document.querySelectorAll('.interactive-element').forEach(element => {
+    element.addEventListener('mousemove', (e) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
+    
+    element.addEventListener('mouseleave', () => {
+      element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+  });
 
     // Initialize simulations based on current page
     let simulation = null;
@@ -1962,4 +1962,704 @@ function initializeDigestiveSystemSimulation() {
 // Initialize human heart simulation
 function initializeHumanHeartSimulation() {
     new HumanHeartSimulation();
+}
+
+// Minimal BaseSimulation class to prevent errors
+class BaseSimulation {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
+        this.isRunning = false;
+    }
+
+    // Add image generation methods
+    generateImage() {
+        if (!this.canvas) return null;
+        
+        // Create a temporary canvas for the image
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = this.canvas.width;
+        tempCanvas.height = this.canvas.height;
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        // Draw the current state to the temporary canvas
+        tempCtx.drawImage(this.canvas, 0, 0);
+        
+        // Convert to image
+        return tempCanvas.toDataURL('image/png');
+    }
+
+    saveImage() {
+        const imageData = this.generateImage();
+        if (!imageData) return;
+        
+        // Create download link
+        const link = document.createElement('a');
+        link.download = `simulation-${Date.now()}.png`;
+        link.href = imageData;
+        link.click();
+    }
+
+    generateSVG() {
+        // Create SVG element
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', this.canvas.width);
+        svg.setAttribute('height', this.canvas.height);
+        
+        // Convert canvas content to SVG
+        const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+        image.setAttribute('width', this.canvas.width);
+        image.setAttribute('height', this.canvas.height);
+        image.setAttribute('href', this.generateImage());
+        
+        svg.appendChild(image);
+        return svg;
+    }
+
+    saveSVG() {
+        const svg = this.generateSVG();
+        if (!svg) return;
+        
+        // Convert SVG to string
+        const serializer = new XMLSerializer();
+        const svgString = serializer.serializeToString(svg);
+        
+        // Create download link
+        const link = document.createElement('a');
+        link.download = `simulation-${Date.now()}.svg`;
+        link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
+        link.click();
+    }
+}
+
+class ChemicalReactionSimulation extends BaseSimulation {
+    constructor() {
+        super('chemical-reaction-canvas');
+        this.reactionType = 'synthesis';
+        this.temperature = 25;
+        this.concentration = 1.0;
+        this.particles = [];
+        this.reactionProgress = 0;
+        this.setupControls();
+    }
+
+    setupControls() {
+        const reactionTypeSelect = document.getElementById('reaction-type');
+        const temperatureInput = document.getElementById('temperature');
+        const concentrationInput = document.getElementById('concentration');
+        const startBtn = document.getElementById('start-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        reactionTypeSelect.addEventListener('change', (e) => {
+            this.reactionType = e.target.value;
+            this.reset();
+        });
+
+        temperatureInput.addEventListener('input', (e) => {
+            this.temperature = parseFloat(e.target.value);
+            document.querySelector('#temperature + span').textContent = `${this.temperature}°C`;
+        });
+
+        concentrationInput.addEventListener('input', (e) => {
+            this.concentration = parseFloat(e.target.value);
+            document.querySelector('#concentration + span').textContent = `${this.concentration} M`;
+        });
+
+        startBtn.addEventListener('click', () => this.start());
+        resetBtn.addEventListener('click', () => this.reset());
+    }
+
+    start() {
+        this.isRunning = true;
+        this.initializeParticles();
+        this.animate();
+    }
+
+    reset() {
+        this.isRunning = false;
+        this.particles = [];
+        this.reactionProgress = 0;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    initializeParticles() {
+        const numParticles = Math.floor(50 * this.concentration);
+        for (let i = 0; i < numParticles; i++) {
+            this.particles.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2,
+                type: Math.random() < 0.5 ? 'A' : 'B',
+                reacted: false
+            });
+        }
+    }
+
+    update() {
+        const speed = 1 + (this.temperature - 25) / 25;
+        
+        for (let i = 0; i < this.particles.length; i++) {
+            const p = this.particles[i];
+            if (!p.reacted) {
+                p.x += p.vx * speed;
+                p.y += p.vy * speed;
+
+                // Bounce off walls
+                if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
+
+                // Check for collisions
+                for (let j = i + 1; j < this.particles.length; j++) {
+                    const p2 = this.particles[j];
+                    if (!p2.reacted && p.type !== p2.type) {
+                        const dx = p2.x - p.x;
+                        const dy = p2.y - p.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 20) {
+                            p.reacted = true;
+                            p2.reacted = true;
+                            this.reactionProgress += 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Draw particles
+        this.particles.forEach(p => {
+            this.ctx.beginPath();
+            this.ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
+            this.ctx.fillStyle = p.reacted ? '#4CAF50' : (p.type === 'A' ? '#2196F3' : '#FFC107');
+            this.ctx.fill();
+            this.ctx.stroke();
+        });
+
+        // Draw progress bar
+        const progress = (this.reactionProgress / this.particles.length) * 100;
+        this.ctx.fillStyle = '#E0E0E0';
+        this.ctx.fillRect(20, 20, 200, 20);
+        this.ctx.fillStyle = '#4CAF50';
+        this.ctx.fillRect(20, 20, progress * 2, 20);
+    }
+}
+
+class AerobicRespirationSimulation extends BaseSimulation {
+    constructor() {
+        super('aerobic-respiration-canvas');
+        this.oxygenLevel = 21;
+        this.glucoseLevel = 5.0;
+        this.activityLevel = 'resting';
+        this.atpLevel = 0;
+        this.co2Level = 0;
+        this.setupControls();
+    }
+
+    setupControls() {
+        const oxygenInput = document.getElementById('oxygen-level');
+        const glucoseInput = document.getElementById('glucose-level');
+        const activitySelect = document.getElementById('activity-level');
+        const startBtn = document.getElementById('start-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        oxygenInput.addEventListener('input', (e) => {
+            this.oxygenLevel = parseFloat(e.target.value);
+            document.querySelector('#oxygen-level + span').textContent = `${this.oxygenLevel}%`;
+        });
+
+        glucoseInput.addEventListener('input', (e) => {
+            this.glucoseLevel = parseFloat(e.target.value);
+            document.querySelector('#glucose-level + span').textContent = `${this.glucoseLevel} mM`;
+        });
+
+        activitySelect.addEventListener('change', (e) => {
+            this.activityLevel = e.target.value;
+        });
+
+        startBtn.addEventListener('click', () => this.start());
+        resetBtn.addEventListener('click', () => this.reset());
+    }
+
+    start() {
+        this.isRunning = true;
+        this.animate();
+    }
+
+    reset() {
+        this.isRunning = false;
+        this.atpLevel = 0;
+        this.co2Level = 0;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    update() {
+        const activityMultiplier = {
+            'resting': 1,
+            'walking': 2,
+            'running': 3,
+            'sprinting': 4
+        }[this.activityLevel];
+
+        const efficiency = Math.min(this.oxygenLevel / 21, 1);
+        const atpProduction = (this.glucoseLevel * efficiency * activityMultiplier) / 10;
+        
+        this.atpLevel = Math.min(100, this.atpLevel + atpProduction);
+        this.co2Level = Math.min(100, this.co2Level + atpProduction * 0.8);
+    }
+
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Draw cell
+        this.ctx.beginPath();
+        this.ctx.arc(this.canvas.width/2, this.canvas.height/2, 100, 0, Math.PI * 2);
+        this.ctx.strokeStyle = '#4CAF50';
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+
+        // Draw mitochondria
+        for (let i = 0; i < 3; i++) {
+            const angle = (i * Math.PI * 2) / 3;
+            const x = this.canvas.width/2 + Math.cos(angle) * 50;
+            const y = this.canvas.height/2 + Math.sin(angle) * 50;
+            
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, 20, 0, Math.PI * 2);
+            this.ctx.fillStyle = '#FFC107';
+            this.ctx.fill();
+            this.ctx.stroke();
+        }
+
+        // Draw ATP and CO2 levels
+        this.drawLevelBar('ATP', this.atpLevel, 20);
+        this.drawLevelBar('CO2', this.co2Level, 50);
+    }
+
+    drawLevelBar(label, level, y) {
+        this.ctx.fillStyle = '#E0E0E0';
+        this.ctx.fillRect(20, y, 200, 20);
+        this.ctx.fillStyle = label === 'ATP' ? '#4CAF50' : '#FF5722';
+        this.ctx.fillRect(20, y, level * 2, 20);
+        this.ctx.fillStyle = '#000';
+        this.ctx.font = '14px Arial';
+        this.ctx.fillText(`${label}: ${Math.round(level)}%`, 230, y + 15);
+    }
+}
+
+class AnaerobicRespirationSimulation extends BaseSimulation {
+    constructor() {
+        super('anaerobic-respiration-canvas');
+        this.glucoseLevel = 5.0;
+        this.organismType = 'yeast';
+        this.temperature = 25;
+        this.productLevel = 0;
+        this.setupControls();
+    }
+
+    setupControls() {
+        const glucoseInput = document.getElementById('glucose-level');
+        const organismSelect = document.getElementById('organism-type');
+        const temperatureInput = document.getElementById('temperature');
+        const startBtn = document.getElementById('start-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        glucoseInput.addEventListener('input', (e) => {
+            this.glucoseLevel = parseFloat(e.target.value);
+            document.querySelector('#glucose-level + span').textContent = `${this.glucoseLevel} mM`;
+        });
+
+        organismSelect.addEventListener('change', (e) => {
+            this.organismType = e.target.value;
+        });
+
+        temperatureInput.addEventListener('input', (e) => {
+            this.temperature = parseFloat(e.target.value);
+            document.querySelector('#temperature + span').textContent = `${this.temperature}°C`;
+        });
+
+        startBtn.addEventListener('click', () => this.start());
+        resetBtn.addEventListener('click', () => this.reset());
+    }
+
+    start() {
+        this.isRunning = true;
+        this.animate();
+    }
+
+    reset() {
+        this.isRunning = false;
+        this.productLevel = 0;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    update() {
+        const temperatureFactor = Math.max(0, 1 - Math.abs(this.temperature - 25) / 25);
+        const efficiency = {
+            'yeast': 0.8,
+            'bacteria': 0.9,
+            'muscle': 0.7
+        }[this.organismType];
+
+        const production = (this.glucoseLevel * efficiency * temperatureFactor) / 10;
+        this.productLevel = Math.min(100, this.productLevel + production);
+    }
+
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Draw organism
+        this.ctx.beginPath();
+        this.ctx.arc(this.canvas.width/2, this.canvas.height/2, 80, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#E0E0E0';
+        this.ctx.fill();
+        this.ctx.strokeStyle = '#4CAF50';
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+
+        // Draw product level
+        const productName = {
+            'yeast': 'Ethanol',
+            'bacteria': 'Lactic Acid',
+            'muscle': 'Lactic Acid'
+        }[this.organismType];
+
+        this.drawLevelBar(productName, this.productLevel, 20);
+    }
+
+    drawLevelBar(label, level, y) {
+        this.ctx.fillStyle = '#E0E0E0';
+        this.ctx.fillRect(20, y, 200, 20);
+        this.ctx.fillStyle = '#4CAF50';
+        this.ctx.fillRect(20, y, level * 2, 20);
+        this.ctx.fillStyle = '#000';
+        this.ctx.font = '14px Arial';
+        this.ctx.fillText(`${label}: ${Math.round(level)}%`, 230, y + 15);
+    }
+}
+
+class SoundWavesSimulation extends BaseSimulation {
+    constructor() {
+        super('sound-waves-canvas');
+        this.frequency = 440;
+        this.amplitude = 0.5;
+        this.waveType = 'sine';
+        this.isRunning = false;
+        this.audioContext = null;
+        this.oscillator = null;
+        this.gainNode = null;
+        
+        this.setupEventListeners();
+        this.resizeCanvas();
+    }
+
+    setupEventListeners() {
+        const frequencyInput = document.getElementById('frequency');
+        const amplitudeInput = document.getElementById('amplitude');
+        const waveTypeSelect = document.getElementById('wave-type');
+        const startBtn = document.getElementById('start-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        frequencyInput.addEventListener('input', (e) => {
+            this.frequency = parseFloat(e.target.value);
+            e.target.nextElementSibling.textContent = `${this.frequency} Hz`;
+            if (this.oscillator) {
+                this.oscillator.frequency.value = this.frequency;
+            }
+        });
+
+        amplitudeInput.addEventListener('input', (e) => {
+            this.amplitude = parseFloat(e.target.value);
+            e.target.nextElementSibling.textContent = this.amplitude;
+            if (this.gainNode) {
+                this.gainNode.gain.value = this.amplitude;
+            }
+        });
+
+        waveTypeSelect.addEventListener('change', (e) => {
+            this.waveType = e.target.value;
+            if (this.oscillator) {
+                this.oscillator.type = this.waveType;
+            }
+        });
+
+        startBtn.addEventListener('click', () => this.start());
+        resetBtn.addEventListener('click', () => this.reset());
+    }
+
+    start() {
+        if (!this.audioContext) {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        if (this.oscillator) {
+            this.oscillator.stop();
+        }
+
+        this.oscillator = this.audioContext.createOscillator();
+        this.gainNode = this.audioContext.createGain();
+
+        this.oscillator.type = this.waveType;
+        this.oscillator.frequency.value = this.frequency;
+        this.gainNode.gain.value = this.amplitude;
+
+        this.oscillator.connect(this.gainNode);
+        this.gainNode.connect(this.audioContext.destination);
+
+        this.oscillator.start();
+        this.isRunning = true;
+        this.animate();
+    }
+
+    reset() {
+        if (this.oscillator) {
+            this.oscillator.stop();
+            this.oscillator = null;
+        }
+        if (this.gainNode) {
+            this.gainNode.disconnect();
+            this.gainNode = null;
+        }
+        this.isRunning = false;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    animate() {
+        if (!this.isRunning) return;
+
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawWave();
+        requestAnimationFrame(() => this.animate());
+    }
+
+    drawWave() {
+        const width = this.canvas.width;
+        const height = this.canvas.height;
+        const centerY = height / 2;
+
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = '#4CAF50';
+        this.ctx.lineWidth = 2;
+
+        for (let x = 0; x < width; x++) {
+            const t = x / width * Math.PI * 2;
+            let y;
+            
+            switch (this.waveType) {
+                case 'sine':
+                    y = centerY + Math.sin(t * this.frequency / 100) * this.amplitude * height / 2;
+                    break;
+                case 'square':
+                    y = centerY + (Math.sin(t * this.frequency / 100) > 0 ? 1 : -1) * this.amplitude * height / 2;
+                    break;
+                case 'triangle':
+                    y = centerY + (Math.abs((t * this.frequency / 100) % 2 - 1) * 2 - 1) * this.amplitude * height / 2;
+                    break;
+                case 'sawtooth':
+                    y = centerY + ((t * this.frequency / 100) % 2 - 1) * this.amplitude * height / 2;
+                    break;
+            }
+
+            if (x === 0) {
+                this.ctx.moveTo(x, y);
+            } else {
+                this.ctx.lineTo(x, y);
+            }
+        }
+
+        this.ctx.stroke();
+    }
+
+    resizeCanvas() {
+        this.canvas.width = this.canvas.offsetWidth;
+        this.canvas.height = this.canvas.offsetHeight;
+    }
+}
+
+class LightOpticsSimulation extends BaseSimulation {
+    constructor() {
+        super('light-optics-canvas');
+        this.wavelength = 550; // nanometers
+        this.intensity = 1.0;
+        this.medium = 'air';
+        this.angle = 45;
+        this.isRunning = false;
+        this.rays = [];
+        this.setupControls();
+    }
+
+    setupControls() {
+        const wavelengthInput = document.getElementById('wavelength');
+        const intensityInput = document.getElementById('intensity');
+        const mediumSelect = document.getElementById('medium');
+        const angleInput = document.getElementById('angle');
+        const startBtn = document.getElementById('start-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const saveImageBtn = document.getElementById('save-image-btn');
+        const saveSvgBtn = document.getElementById('save-svg-btn');
+
+        wavelengthInput.addEventListener('input', (e) => {
+            this.wavelength = parseFloat(e.target.value);
+            document.querySelector('#wavelength + span').textContent = `${this.wavelength} nm`;
+        });
+
+        intensityInput.addEventListener('input', (e) => {
+            this.intensity = parseFloat(e.target.value);
+            document.querySelector('#intensity + span').textContent = this.intensity;
+        });
+
+        mediumSelect.addEventListener('change', (e) => {
+            this.medium = e.target.value;
+        });
+
+        angleInput.addEventListener('input', (e) => {
+            this.angle = parseFloat(e.target.value);
+            document.querySelector('#angle + span').textContent = `${this.angle}°`;
+        });
+
+        startBtn.addEventListener('click', () => this.start());
+        resetBtn.addEventListener('click', () => this.reset());
+        saveImageBtn.addEventListener('click', () => this.saveImage());
+        saveSvgBtn.addEventListener('click', () => this.saveSVG());
+    }
+
+    start() {
+        this.isRunning = true;
+        this.initializeRays();
+        this.animate();
+    }
+
+    reset() {
+        this.isRunning = false;
+        this.rays = [];
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    initializeRays() {
+        const numRays = 10;
+        const startX = 50;
+        const startY = this.canvas.height / 2;
+
+        for (let i = 0; i < numRays; i++) {
+            this.rays.push({
+                x: startX,
+                y: startY + (i - numRays/2) * 10,
+                angle: this.angle * Math.PI / 180,
+                color: this.wavelengthToColor(this.wavelength),
+                intensity: this.intensity
+            });
+        }
+    }
+
+    wavelengthToColor(wavelength) {
+        // Convert wavelength to RGB color
+        let r, g, b;
+        if (wavelength >= 380 && wavelength < 440) {
+            r = -(wavelength - 440) / (440 - 380);
+            g = 0;
+            b = 1;
+        } else if (wavelength >= 440 && wavelength < 490) {
+            r = 0;
+            g = (wavelength - 440) / (490 - 440);
+            b = 1;
+        } else if (wavelength >= 490 && wavelength < 510) {
+            r = 0;
+            g = 1;
+            b = -(wavelength - 510) / (510 - 490);
+        } else if (wavelength >= 510 && wavelength < 580) {
+            r = (wavelength - 510) / (580 - 510);
+            g = 1;
+            b = 0;
+        } else if (wavelength >= 580 && wavelength < 645) {
+            r = 1;
+            g = -(wavelength - 645) / (645 - 580);
+            b = 0;
+        } else if (wavelength >= 645 && wavelength <= 780) {
+            r = 1;
+            g = 0;
+            b = 0;
+        } else {
+            r = 0;
+            g = 0;
+            b = 0;
+        }
+
+        return `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)})`;
+    }
+
+    update() {
+        const speed = 5;
+        const prismX = this.canvas.width * 0.6;
+        const prismY = this.canvas.height / 2;
+
+        this.rays.forEach(ray => {
+            if (ray.x < prismX) {
+                ray.x += speed * Math.cos(ray.angle);
+                ray.y += speed * Math.sin(ray.angle);
+            } else {
+                // Refraction at prism
+                const refractionAngle = this.calculateRefractionAngle(ray.angle);
+                ray.x += speed * Math.cos(refractionAngle);
+                ray.y += speed * Math.sin(refractionAngle);
+            }
+        });
+    }
+
+    calculateRefractionAngle(incidentAngle) {
+        const refractiveIndices = {
+            'air': 1.0,
+            'water': 1.33,
+            'glass': 1.5,
+            'diamond': 2.42
+        };
+
+        const n1 = refractiveIndices['air'];
+        const n2 = refractiveIndices[this.medium];
+        const sinRefracted = (n1 / n2) * Math.sin(incidentAngle);
+        return Math.asin(sinRefracted);
+    }
+
+    draw() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Draw prism
+        this.drawPrism();
+
+        // Draw rays
+        this.rays.forEach(ray => {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = ray.color;
+            this.ctx.lineWidth = 2 * ray.intensity;
+            this.ctx.moveTo(ray.x, ray.y);
+            this.ctx.lineTo(ray.x + 50 * Math.cos(ray.angle), ray.y + 50 * Math.sin(ray.angle));
+            this.ctx.stroke();
+        });
+    }
+
+    drawPrism() {
+        const prismX = this.canvas.width * 0.6;
+        const prismY = this.canvas.height / 2;
+        const size = 100;
+
+        this.ctx.beginPath();
+        this.ctx.moveTo(prismX, prismY - size/2);
+        this.ctx.lineTo(prismX + size/2, prismY);
+        this.ctx.lineTo(prismX, prismY + size/2);
+        this.ctx.closePath();
+        this.ctx.strokeStyle = '#4CAF50';
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+    }
+
+    animate() {
+        if (!this.isRunning) return;
+
+        this.update();
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
 }

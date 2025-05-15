@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Reaction Simulation</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../index.html" class="logo">ScienceSim</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                
+                <!-- Physics Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Physics</button>
+                    <div class="chapter-content">
+                        <a href="sound-waves.html">Sound Waves</a>
+                        <a href="light-optics.html">Light and Optics</a>
+                        <a href="electricity.html">Electricity</a>
+                        <a href="motion.html">Motion</a>
+                        <a href="energy.html">Energy</a>
+                    </div>
+                </div>
+
+                <!-- Chemistry Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Chemistry</button>
+                    <div class="chapter-content">
+                        <a href="chemical-reaction.html" class="active">Chemical Reactions</a>
+                        <a href="atomic-structure.html">Atomic Structure</a>
+                        <a href="periodic-table.html">Periodic Table</a>
+                        <a href="acids-bases.html">Acids and Bases</a>
+                        <a href="states-matter.html">States of Matter</a>
+                    </div>
+                </div>
+
+                <!-- Biology Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Biology</button>
+                    <div class="chapter-content">
+                        <a href="photosynthesis.html">Photosynthesis</a>
+                        <a href="aerobic-respiration.html">Aerobic Respiration</a>
+                        <a href="anaerobic-respiration.html">Anaerobic Respiration</a>
+                        <a href="digestive-system.html">Digestive System</a>
+                        <a href="human-heart.html">Human Heart</a>
+                        <a href="cell-structure.html">Cell Structure</a>
+                        <a href="dna.html">DNA and Genetics</a>
+                        <a href="evolution.html">Evolution</a>
+                    </div>
+                </div>
+
+                <!-- Earth Science Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Earth Science</button>
+                    <div class="chapter-content">
+                        <a href="temperature.html">Temperature</a>
+                        <a href="acid-rain.html">Acid Rain</a>
+                        <a href="weather.html">Weather Systems</a>
+                        <a href="plate-tectonics.html">Plate Tectonics</a>
+                        <a href="rock-cycle.html">Rock Cycle</a>
+                        <a href="water-cycle.html">Water Cycle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="simulation-container">
+            <h1>Chemical Reaction Simulation</h1>
+            <img src="../assets/chemical-reaction.svg" alt="Chemical Reaction" class="topic-image" style="display:block;margin:0 auto 20px;max-width:180px;">
+            <div class="simulation-content">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="reaction-type">Reaction Type:</label>
+                        <select id="reaction-type">
+                            <option value="synthesis">Synthesis</option>
+                            <option value="decomposition">Decomposition</option>
+                            <option value="single-replacement">Single Replacement</option>
+                            <option value="double-replacement">Double Replacement</option>
+                            <option value="combustion">Combustion</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="temperature">Temperature (°C):</label>
+                        <input type="range" id="temperature" min="0" max="100" value="25">
+                        <span>25°C</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="concentration">Concentration (M):</label>
+                        <input type="range" id="concentration" min="0.1" max="2" value="1" step="0.1">
+                        <span>1.0 M</span>
+                    </div>
+                    <button id="start-btn">Start Simulation</button>
+                    <button id="reset-btn">Reset</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="chemical-reaction-canvas"></canvas>
+                </div>
+            </div>
+            <div class="simulation-info">
+                <h2>About Chemical Reactions</h2>
+                <p>Chemical reactions involve the transformation of substances into new substances through the breaking and forming of chemical bonds. This simulation demonstrates different types of chemical reactions and their characteristics.</p>
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li>Types of chemical reactions</li>
+                    <li>Reaction rates and factors affecting them</li>
+                    <li>Energy changes in reactions</li>
+                    <li>Balancing chemical equations</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const simulation = new ChemicalReactionSimulation();
+        });
+    </script>
+</body>
+</html> 

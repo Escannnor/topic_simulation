@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerobic Respiration Simulation - Interactive Science Simulations</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../index.html" class="logo">ScienceSim</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="photosynthesis.html">Photosynthesis</a>
+                <a href="temperature.html">Temperature</a>
+                <a href="digestive-system.html">Digestive System</a>
+                <a href="human-heart.html">Human Heart</a>
+                <a href="acid-rain.html">Acid Rain</a>
+                <a href="chemical-reaction.html">Chemical Reaction</a>
+                <a href="aerobic-respiration.html" class="active">Aerobic Respiration</a>
+                <a href="anaerobic-respiration.html">Anaerobic Respiration</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="simulation-container">
+            <h1>Aerobic Respiration Simulation</h1>
+            <div class="simulation-content">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="oxygen-level">Oxygen Level (%):</label>
+                        <input type="range" id="oxygen-level" min="0" max="100" value="21">
+                        <span>21%</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="glucose-level">Glucose Level (mM):</label>
+                        <input type="range" id="glucose-level" min="0" max="10" value="5" step="0.1">
+                        <span>5.0 mM</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="activity-level">Activity Level:</label>
+                        <select id="activity-level">
+                            <option value="resting">Resting</option>
+                            <option value="walking">Walking</option>
+                            <option value="running">Running</option>
+                            <option value="sprinting">Sprinting</option>
+                        </select>
+                    </div>
+                    <button id="start-btn">Start Simulation</button>
+                    <button id="reset-btn">Reset</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="aerobic-respiration-canvas"></canvas>
+                </div>
+            </div>
+            <div class="simulation-info">
+                <h2>About Aerobic Respiration</h2>
+                <p>Aerobic respiration is the process by which cells convert glucose and oxygen into energy, carbon dioxide, and water. This simulation demonstrates the key steps of aerobic respiration and how different factors affect the process.</p>
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li>Glycolysis</li>
+                    <li>Krebs cycle</li>
+                    <li>Electron transport chain</li>
+                    <li>ATP production</li>
+                    <li>Oxygen consumption</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const simulation = new AerobicRespirationSimulation();
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity - ScienceSim</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-atom"></i>
+                ScienceSim
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Physics <i class="fas fa-chevron-down"></i></button>
+                    <div class="chapter-content">
+                        <a href="sound-waves.html">Sound Waves</a>
+                        <a href="light-optics.html">Light and Optics</a>
+                        <a href="electricity.html" class="active">Electricity</a>
+                        <a href="motion.html">Motion</a>
+                        <a href="energy.html">Energy</a>
+                        <a href="gravity.html">Gravity</a>
+                        <a href="magnetism.html">Magnetism</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="simulation-page">
+        <div class="simulation-header">
+            <h1>Electricity</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="#" class="chapter-link">Physics</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Electricity</span>
+            </div>
+        </div>
+
+        <div class="simulation-container">
+            <div class="simulation-sidebar">
+                <div class="learning-objectives">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Understand basic electrical concepts</li>
+                        <li>Explore circuits and components</li>
+                        <li>Learn about voltage, current, and resistance</li>
+                        <li>Investigate electrical power and energy</li>
+                    </ul>
+                </div>
+
+                <div class="key-concepts">
+                    <h3>Key Concepts</h3>
+                    <ul>
+                        <li>Electric Circuits</li>
+                        <li>Ohm's Law</li>
+                        <li>Series and Parallel Circuits</li>
+                        <li>Electrical Power</li>
+                        <li>Circuit Components</li>
+                    </ul>
+                </div>
+
+                <div class="prerequisites">
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>Basic understanding of physics</li>
+                        <li>Knowledge of mathematical concepts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="simulation-content">
+                <div class="educational-content">
+                    <h2>Understanding Electricity</h2>
+                    <p>Electricity is the flow of electric charge through a conductor. This simulation helps you understand the fundamental concepts of electricity and electrical circuits.</p>
+
+                    <div class="concept-explanation">
+                        <h3>What is Electricity?</h3>
+                        <p>Electricity is a form of energy resulting from the existence of charged particles (such as electrons or protons), either statically as an accumulation of charge or dynamically as a current.</p>
+                    </div>
+
+                    <div class="concept-explanation">
+                        <h3>How do Electrical Circuits Work?</h3>
+                        <p>An electrical circuit is a path through which electric current flows. It consists of various components like resistors, capacitors, and power sources connected by conductive wires.</p>
+                    </div>
+
+                    <div class="concept-explanation">
+                        <h3>Real-world Applications</h3>
+                        <p>Understanding electricity is crucial in many fields:</p>
+                        <ul>
+                            <li>Power generation and distribution</li>
+                            <li>Electronics and computing</li>
+                            <li>Electric vehicles</li>
+                            <li>Renewable energy systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="simulation-area">
+                    <div class="simulation-controls">
+                        <h3>Controls</h3>
+                        <div class="control-group">
+                            <label for="voltage">Voltage (V):</label>
+                            <input type="range" id="voltage" min="0" max="12" value="6" step="0.1">
+                            <span id="voltage-value">6.0 V</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="resistance">Resistance (Ω):</label>
+                            <input type="range" id="resistance" min="1" max="1000" value="100" step="1">
+                            <span id="resistance-value">100 Ω</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="circuit-type">Circuit Type:</label>
+                            <select id="circuit-type">
+                                <option value="series">Series Circuit</option>
+                                <option value="parallel">Parallel Circuit</option>
+                                <option value="complex">Complex Circuit</option>
+                            </select>
+                        </div>
+                        <div class="control-buttons">
+                            <button id="add-component" class="simulation-button">
+                                <i class="fas fa-plus"></i> Add Component
+                            </button>
+                            <button id="clear-circuit" class="simulation-button">
+                                <i class="fas fa-trash"></i> Clear Circuit
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="simulation-visualization">
+                        <canvas id="circuit-canvas" width="800" height="300"></canvas>
+                        <div class="visualization-controls">
+                            <button id="toggle-grid" class="simulation-button">Toggle Grid</button>
+                            <button id="toggle-labels" class="simulation-button">Toggle Labels</button>
+                        </div>
+                    </div>
+
+                    <div class="simulation-data">
+                        <h3>Circuit Analysis</h3>
+                        <div class="data-display">
+                            <div class="data-item">
+                                <span class="data-label">Current:</span>
+                                <span id="current-value">0.06 A</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Power:</span>
+                                <span id="power-value">0.36 W</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Total Resistance:</span>
+                                <span id="total-resistance-value">100 Ω</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-exercises">
+                    <h2>Interactive Exercises</h2>
+                    <div class="exercise">
+                        <h3>Exercise 1: Ohm's Law</h3>
+                        <p>Calculate the current in a circuit with:</p>
+                        <ul>
+                            <li>Voltage: 12V</li>
+                            <li>Resistance: 200Ω</li>
+                        </ul>
+                        <div class="exercise-controls">
+                            <button id="check-ohm" class="simulation-button">Check Answer</button>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 2: Circuit Design</h3>
+                        <p>Design a circuit that will light up an LED with a forward voltage of 2V and current of 20mA.</p>
+                        <div class="exercise-controls">
+                            <button id="check-circuit" class="simulation-button">Check Design</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assessment">
+                    <h2>Knowledge Check</h2>
+                    <div class="quiz">
+                        <div class="question">
+                            <h3>Question 1</h3>
+                            <p>What is the relationship between voltage, current, and resistance in a circuit?</p>
+                            <div class="options">
+                                <label>
+                                    <input type="radio" name="q1" value="a"> V = I × R
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="b"> I = V × R
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="c"> R = V × I
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="d"> V = I ÷ R
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-topics">
+            <h2>Related Topics</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <img src="../assets/magnetism.svg" alt="Magnetism" class="topic-image">
+                    <h3>Magnetism</h3>
+                    <p>Explore the relationship between electricity and magnetism.</p>
+                    <a href="magnetism.html" class="simulation-button">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <img src="../assets/energy.svg" alt="Energy" class="topic-image">
+                    <h3>Energy</h3>
+                    <p>Learn about different forms of energy and their transformations.</p>
+                    <a href="energy.html" class="simulation-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About ScienceSim</h3>
+                <p>An interactive platform for learning science through simulations and experiments.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../src/utils.js"></script>
+    <script src="../src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('circuit-canvas');
+            const ctx = canvas.getContext('2d');
+            let components = [];
+            let isDrawing = false;
+
+            // Initialize dropdown functionality
+            const dropdowns = document.querySelectorAll('.chapter-dropdown');
+            dropdowns.forEach(dropdown => {
+                const button = dropdown.querySelector('.chapter-btn');
+                const content = dropdown.querySelector('.chapter-content');
+                
+                button.addEventListener('click', () => {
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Update circuit visualization
+            function drawCircuit() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw grid
+                if (document.getElementById('toggle-grid').classList.contains('active')) {
+                    drawGrid();
+                }
+
+                // Draw components
+                components.forEach(component => {
+                    drawComponent(component);
+                });
+
+                requestAnimationFrame(drawCircuit);
+            }
+
+            function drawGrid() {
+                ctx.strokeStyle = '#ddd';
+                ctx.lineWidth = 0.5;
+                
+                for (let x = 0; x < canvas.width; x += 20) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvas.height);
+                    ctx.stroke();
+                }
+                
+                for (let y = 0; y < canvas.height; y += 20) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvas.width, y);
+                    ctx.stroke();
+                }
+            }
+
+            function drawComponent(component) {
+                ctx.strokeStyle = '#2196F3';
+                ctx.lineWidth = 2;
+                
+                switch (component.type) {
+                    case 'resistor':
+                        drawResistor(component);
+                        break;
+                    case 'capacitor':
+                        drawCapacitor(component);
+                        break;
+                    case 'inductor':
+                        drawInductor(component);
+                        break;
+                }
+            }
+
+            // Start circuit visualization
+            drawCircuit();
+        });
+    </script>
+</body>
+</html> 

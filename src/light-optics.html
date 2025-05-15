@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light and Optics Simulation</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../index.html" class="logo">ScienceSim</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                
+                <!-- Physics Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Physics</button>
+                    <div class="chapter-content">
+                        <a href="sound-waves.html">Sound Waves</a>
+                        <a href="light-optics.html" class="active">Light and Optics</a>
+                        <a href="electricity.html">Electricity</a>
+                        <a href="motion.html">Motion</a>
+                        <a href="energy.html">Energy</a>
+                    </div>
+                </div>
+
+                <!-- Chemistry Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Chemistry</button>
+                    <div class="chapter-content">
+                        <a href="chemical-reaction.html">Chemical Reactions</a>
+                        <a href="atomic-structure.html">Atomic Structure</a>
+                        <a href="periodic-table.html">Periodic Table</a>
+                        <a href="acids-bases.html">Acids and Bases</a>
+                        <a href="states-matter.html">States of Matter</a>
+                    </div>
+                </div>
+
+                <!-- Biology Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Biology</button>
+                    <div class="chapter-content">
+                        <a href="photosynthesis.html">Photosynthesis</a>
+                        <a href="aerobic-respiration.html">Aerobic Respiration</a>
+                        <a href="anaerobic-respiration.html">Anaerobic Respiration</a>
+                        <a href="digestive-system.html">Digestive System</a>
+                        <a href="human-heart.html">Human Heart</a>
+                        <a href="cell-structure.html">Cell Structure</a>
+                        <a href="dna.html">DNA and Genetics</a>
+                        <a href="evolution.html">Evolution</a>
+                    </div>
+                </div>
+
+                <!-- Earth Science Chapter -->
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Earth Science</button>
+                    <div class="chapter-content">
+                        <a href="temperature.html">Temperature</a>
+                        <a href="acid-rain.html">Acid Rain</a>
+                        <a href="weather.html">Weather Systems</a>
+                        <a href="plate-tectonics.html">Plate Tectonics</a>
+                        <a href="rock-cycle.html">Rock Cycle</a>
+                        <a href="water-cycle.html">Water Cycle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="simulation-container">
+            <h1>Light and Optics Simulation</h1>
+            <div class="simulation-content">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="wavelength">Wavelength (nm):</label>
+                        <input type="range" id="wavelength" min="380" max="780" value="550">
+                        <span>550 nm</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="intensity">Intensity:</label>
+                        <input type="range" id="intensity" min="0" max="1" value="1" step="0.1">
+                        <span>1.0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="medium">Medium:</label>
+                        <select id="medium">
+                            <option value="air">Air</option>
+                            <option value="water">Water</option>
+                            <option value="glass">Glass</option>
+                            <option value="diamond">Diamond</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="angle">Incident Angle (°):</label>
+                        <input type="range" id="angle" min="0" max="90" value="45">
+                        <span>45°</span>
+                    </div>
+                    <button id="start-btn">Start Simulation</button>
+                    <button id="reset-btn">Reset</button>
+                    <button id="save-image-btn">Save as Image</button>
+                    <button id="save-svg-btn">Save as SVG</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="light-optics-canvas"></canvas>
+                </div>
+            </div>
+            <div class="simulation-info">
+                <h2>About Light and Optics</h2>
+                <p>This simulation demonstrates the principles of light refraction and dispersion through different media. You can observe how light waves change direction and separate into different colors when passing through a prism.</p>
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li>Light refraction and Snell's law</li>
+                    <li>Dispersion of light</li>
+                    <li>Wavelength and color</li>
+                    <li>Refractive index of different media</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script src="simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const simulation = new LightOpticsSimulation();
+        });
+    </script>
+</body>
+</html> 

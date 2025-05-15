@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acid Rain Simulation - Interactive Science Simulations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">ScienceSim</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="photosynthesis.html">Photosynthesis</a>
+                <a href="temperature.html">Temperature</a>
+                <a href="digestive-system.html">Digestive System</a>
+                <a href="human-heart.html">Human Heart</a>
+                <a href="acid-rain.html" class="active">Acid Rain</a>
+                <a href="chemical-reaction.html">Chemical Reaction</a>
+                <a href="aerobic-respiration.html">Aerobic Respiration</a>
+                <a href="anaerobic-respiration.html">Anaerobic Respiration</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="simulation-container">
+            <h1>Acid Rain Simulation</h1>
+            <div class="simulation-content">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="ph-level">pH Level:</label>
+                        <input type="range" id="ph-level" min="0" max="14" value="7" step="0.1">
+                        <span>7.0</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="rain-intensity">Rain Intensity:</label>
+                        <input type="range" id="rain-intensity" min="0" max="100" value="50">
+                        <span>50%</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="surface-type">Surface Type:</label>
+                        <select id="surface-type">
+                            <option value="limestone">Limestone</option>
+                            <option value="granite">Granite</option>
+                            <option value="marble">Marble</option>
+                            <option value="concrete">Concrete</option>
+                        </select>
+                    </div>
+                    <button id="start-btn">Start Simulation</button>
+                    <button id="reset-btn">Reset</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="acid-rain-canvas"></canvas>
+                </div>
+            </div>
+            <div class="simulation-info">
+                <h2>About Acid Rain</h2>
+                <p>Acid rain is a form of precipitation that is unusually acidic, meaning it has elevated levels of hydrogen ions (low pH). It can have harmful effects on plants, aquatic animals, and infrastructure.</p>
+                <h3>Key Concepts:</h3>
+                <ul>
+                    <li>pH scale and acidity</li>
+                    <li>Chemical reactions with different surfaces</li>
+                    <li>Environmental impact</li>
+                    <li>Prevention and mitigation strategies</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+    </footer>
+
+    <script src="src/utils.js"></script>
+    <script src="src/simulations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const simulation = new AcidRainSimulation();
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ScienceSim</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/simulation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-atom"></i>
+                ScienceSim
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Physics <i class="fas fa-chevron-down"></i></button>
+                    <div class="chapter-content">
+                        <a href="sound-waves.html">Sound Waves</a>
+                        <a href="light-optics.html">Light and Optics</a>
+                        <a href="electricity.html">Electricity</a>
+                        <a href="motion.html">Motion</a>
+                        <a href="energy.html">Energy</a>
+                        <a href="gravity.html">Gravity</a>
+                        <a href="magnetism.html">Magnetism</a>
+                    </div>
+                </div>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="simulation-page">
+        <div class="simulation-header">
+            <h1>About ScienceSim</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>About</span>
+            </div>
+        </div>
+
+        <div class="simulation-container">
+            <div class="simulation-content">
+                <div class="educational-content">
+                    <h2>Our Mission</h2>
+                    <p>ScienceSim is dedicated to making science education more interactive and engaging through high-quality simulations and experiments. Our goal is to help students understand complex scientific concepts through hands-on learning experiences.</p>
+
+                    <div class="concept-explanation">
+                        <h3>What We Do</h3>
+                        <p>We create interactive simulations that cover various scientific disciplines:</p>
+                        <ul>
+                            <li>Physics simulations for understanding waves, motion, and energy</li>
+                            <li>Chemistry experiments for exploring reactions and molecular structures</li>
+                            <li>Biology simulations for studying cellular processes and systems</li>
+                            <li>Earth Science visualizations for understanding natural phenomena</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-explanation">
+                        <h3>Our Approach</h3>
+                        <p>Each simulation is designed with:</p>
+                        <ul>
+                            <li>Clear learning objectives</li>
+                            <li>Interactive controls and visualizations</li>
+                            <li>Real-time data analysis</li>
+                            <li>Educational content and explanations</li>
+                            <li>Assessment tools and exercises</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-explanation">
+                        <h3>Our Team</h3>
+                        <p>We are a team of educators, scientists, and developers passionate about making science education more accessible and engaging. Our diverse backgrounds allow us to create accurate and effective learning tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About ScienceSim</h3>
+                <p>An interactive platform for learning science through simulations and experiments.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../src/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize dropdown functionality
+            const dropdowns = document.querySelectorAll('.chapter-dropdown');
+            dropdowns.forEach(dropdown => {
+                const button = dropdown.querySelector('.chapter-btn');
+                const content = dropdown.querySelector('.chapter-content');
+                
+                button.addEventListener('click', () => {
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

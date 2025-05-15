@@ -3,78 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound Waves Simulation - Interactive Science</title>
+    <title>Sound Waves - ScienceSim</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/simulation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="sim-header">
-        <nav class="top-nav">
-            <a href="../index.html" class="home-link">← Back to Home</a>
-            <div class="sim-controls">
-                <button id="fullscreen-btn">Fullscreen</button>
-                <button id="reset-btn">Reset</button>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-atom"></i>
+                ScienceSim
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <div class="chapter-dropdown">
+                    <button class="chapter-btn">Physics <i class="fas fa-chevron-down"></i></button>
+                    <div class="chapter-content">
+                        <a href="sound-waves.html" class="active">Sound Waves</a>
+                        <a href="light-optics.html">Light and Optics</a>
+                        <a href="electricity.html">Electricity</a>
+                        <a href="motion.html">Motion</a>
+                        <a href="energy.html">Energy</a>
+                        <a href="gravity.html">Gravity</a>
+                        <a href="magnetism.html">Magnetism</a>
+                    </div>
+                </div>
+                <!-- Other chapter dropdowns -->
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main class="simulation-container">
-        <div class="simulation-area">
-            <div class="wave-visualization">
-                <canvas id="wave-canvas"></canvas>
-            </div>
-            
-            <div class="control-panel">
-                <div class="control-group">
-                    <label for="frequency">Frequency (Hz)</label>
-                    <input type="range" id="frequency" min="20" max="20000" value="440">
-                    <span class="value-display">440 Hz</span>
-                </div>
-                
-                <div class="control-group">
-                    <label for="amplitude">Amplitude</label>
-                    <input type="range" id="amplitude" min="0" max="100" value="50">
-                    <span class="value-display">50%</span>
-                </div>
-
-                <div class="control-group">
-                    <label for="wave-type">Wave Type</label>
-                    <select id="wave-type">
-                        <option value="sine">Sine Wave</option>
-                        <option value="square">Square Wave</option>
-                        <option value="triangle">Triangle Wave</option>
-                        <option value="sawtooth">Sawtooth Wave</option>
-                    </select>
-                </div>
-
-                <button id="play-btn" class="primary-btn">Play Sound</button>
+    <main class="simulation-page">
+        <div class="simulation-header">
+            <h1>Sound Waves</h1>
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="#" class="chapter-link">Physics</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Sound Waves</span>
             </div>
         </div>
 
-        <div class="info-panel">
-            <h2>About Sound Waves</h2>
-            <p>Sound waves are longitudinal waves that travel through a medium, such as air or water. They are created by vibrating objects and can be characterized by their:</p>
-            <ul>
-                <li><strong>Frequency:</strong> The number of complete waves that pass a point per second (measured in Hertz)</li>
-                <li><strong>Amplitude:</strong> The height of the wave, which determines the volume</li>
-                <li><strong>Waveform:</strong> The shape of the wave, which affects the timbre of the sound</li>
-            </ul>
-            <div class="key-concepts">
-                <h3>Key Concepts:</h3>
-                <ul>
-                    <li>Frequency: Number of waves per second (measured in Hertz)</li>
-                    <li>Amplitude: Height of the wave (determines volume)</li>
-                    <li>Wavelength: Distance between wave peaks</li>
-                    <li>Wave Interference: How waves interact when they meet</li>
-                </ul>
+        <div class="simulation-container">
+            <div class="simulation-sidebar">
+                <div class="learning-objectives">
+                    <h3>Learning Objectives</h3>
+                    <ul>
+                        <li>Understand the basic properties of sound waves</li>
+                        <li>Explore how frequency and amplitude affect sound</li>
+                        <li>Learn about wave interference and resonance</li>
+                        <li>Investigate the relationship between pitch and frequency</li>
+                    </ul>
+                </div>
+
+                <div class="key-concepts">
+                    <h3>Key Concepts</h3>
+                    <ul>
+                        <li>Wave Properties</li>
+                        <li>Frequency and Pitch</li>
+                        <li>Amplitude and Volume</li>
+                        <li>Wave Interference</li>
+                        <li>Resonance</li>
+                    </ul>
+                </div>
+
+                <div class="prerequisites">
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>Basic understanding of waves</li>
+                        <li>Knowledge of basic physics concepts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="simulation-content">
+                <div class="educational-content">
+                    <h2>Understanding Sound Waves</h2>
+                    <p>Sound waves are vibrations that travel through a medium, such as air or water. They are characterized by their frequency, amplitude, and wavelength.</p>
+
+                    <div class="concept-explanation">
+                        <h3>What are Sound Waves?</h3>
+                        <p>Sound waves are longitudinal waves that consist of compressions and rarefactions of the medium through which they travel. When an object vibrates, it creates pressure waves in the surrounding air, which our ears detect as sound.</p>
+                    </div>
+
+                    <div class="concept-explanation">
+                        <h3>How do Sound Waves Work?</h3>
+                        <p>When a sound is produced, it creates a series of compressions and rarefactions in the air. These pressure changes travel outward from the source in all directions. The frequency of these waves determines the pitch of the sound, while the amplitude determines its volume.</p>
+                    </div>
+
+                    <div class="concept-explanation">
+                        <h3>Real-world Applications</h3>
+                        <p>Understanding sound waves is crucial in many fields:</p>
+                        <ul>
+                            <li>Music and audio engineering</li>
+                            <li>Medical imaging (ultrasound)</li>
+                            <li>Sonar and echolocation</li>
+                            <li>Acoustic design and noise control</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="simulation-area">
+                    <div class="simulation-controls">
+                        <h3>Controls</h3>
+                        <div class="control-group">
+                            <label for="frequency">Frequency (Hz):</label>
+                            <input type="range" id="frequency" min="20" max="2000" value="440" step="1">
+                            <span id="frequency-value">440 Hz</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="amplitude">Amplitude:</label>
+                            <input type="range" id="amplitude" min="0" max="100" value="50" step="1">
+                            <span id="amplitude-value">50%</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="wave-type">Wave Type:</label>
+                            <select id="wave-type">
+                                <option value="sine">Sine Wave</option>
+                                <option value="square">Square Wave</option>
+                                <option value="triangle">Triangle Wave</option>
+                                <option value="sawtooth">Sawtooth Wave</option>
+                            </select>
+                        </div>
+                        <div class="control-buttons">
+                            <button id="play-sound" class="simulation-button">
+                                <i class="fas fa-play"></i> Play Sound
+                            </button>
+                            <button id="stop-sound" class="simulation-button">
+                                <i class="fas fa-stop"></i> Stop
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="simulation-visualization">
+                        <canvas id="wave-canvas" width="800" height="300"></canvas>
+                        <div class="visualization-controls">
+                            <button id="toggle-grid" class="simulation-button">Toggle Grid</button>
+                            <button id="toggle-labels" class="simulation-button">Toggle Labels</button>
+                        </div>
+                    </div>
+
+                    <div class="simulation-data">
+                        <h3>Wave Analysis</h3>
+                        <div class="data-display">
+                            <div class="data-item">
+                                <span class="data-label">Wavelength:</span>
+                                <span id="wavelength-value">0.78 m</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Period:</span>
+                                <span id="period-value">0.0023 s</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Speed:</span>
+                                <span id="speed-value">343 m/s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-exercises">
+                    <h2>Interactive Exercises</h2>
+                    <div class="exercise">
+                        <h3>Exercise 1: Frequency and Pitch</h3>
+                        <p>Adjust the frequency slider to match the following notes:</p>
+                        <ul>
+                            <li>Middle C (261.63 Hz)</li>
+                            <li>E4 (329.63 Hz)</li>
+                            <li>G4 (392.00 Hz)</li>
+                        </ul>
+                        <div class="exercise-controls">
+                            <button id="check-notes" class="simulation-button">Check Answers</button>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h3>Exercise 2: Wave Interference</h3>
+                        <p>Create a standing wave pattern by adjusting the frequency to match the natural frequency of the medium.</p>
+                        <div class="exercise-controls">
+                            <button id="add-wave" class="simulation-button">Add Wave</button>
+                            <button id="clear-waves" class="simulation-button">Clear Waves</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assessment">
+                    <h2>Knowledge Check</h2>
+                    <div class="quiz">
+                        <div class="question">
+                            <h3>Question 1</h3>
+                            <p>What determines the pitch of a sound wave?</p>
+                            <div class="options">
+                                <label>
+                                    <input type="radio" name="q1" value="a"> Amplitude
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="b"> Frequency
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="c"> Wavelength
+                                </label>
+                                <label>
+                                    <input type="radio" name="q1" value="d"> Speed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-topics">
+            <h2>Related Topics</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <img src="../assets/light-optics.svg" alt="Light and Optics" class="topic-image">
+                    <h3>Light and Optics</h3>
+                    <p>Explore how light waves behave and interact with different materials.</p>
+                    <a href="light-optics.html" class="simulation-button">Learn More</a>
+                </div>
+                <div class="topic-card">
+                    <img src="../assets/electricity.svg" alt="Electricity" class="topic-image">
+                    <h3>Electricity</h3>
+                    <p>Learn about electrical waves and their applications in technology.</p>
+                    <a href="electricity.html" class="simulation-button">Learn More</a>
+                </div>
             </div>
         </div>
     </main>
 
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About ScienceSim</h3>
+                <p>An interactive platform for learning science through simulations and experiments.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ScienceSim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../src/utils.js"></script>
     <script src="../src/simulations.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            initializeSoundWaveSimulation();
+            const canvas = document.getElementById('wave-canvas');
+            const ctx = canvas.getContext('2d');
+            let audioContext = null;
+            let oscillator = null;
+            let isPlaying = false;
+
+            // Initialize audio context
+            function initAudio() {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            // Update wave visualization
+            function drawWave() {
+                const frequency = document.getElementById('frequency').value;
+                const amplitude = document.getElementById('amplitude').value;
+                const waveType = document.getElementById('wave-type').value;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.strokeStyle = '#2196F3';
+                ctx.lineWidth = 2;
+
+                for (let x = 0; x < canvas.width; x++) {
+                    const y = canvas.height/2 + 
+                        Math.sin(x * frequency/100) * amplitude * 2;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+
+                ctx.stroke();
+                requestAnimationFrame(drawWave);
+            }
+
+            // Play sound
+            document.getElementById('play-sound').addEventListener('click', () => {
+                if (!audioContext) {
+                    initAudio();
+                }
+
+                if (!isPlaying) {
+                    oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.type = document.getElementById('wave-type').value;
+                    oscillator.frequency.value = document.getElementById('frequency').value;
+                    gainNode.gain.value = document.getElementById('amplitude').value / 100;
+
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    oscillator.start();
+                    isPlaying = true;
+                }
+            });
+
+            // Stop sound
+            document.getElementById('stop-sound').addEventListener('click', () => {
+                if (oscillator) {
+                    oscillator.stop();
+                    oscillator = null;
+                    isPlaying = false;
+                }
+            });
+
+            // Update frequency display
+            document.getElementById('frequency').addEventListener('input', (e) => {
+                document.getElementById('frequency-value').textContent = `${e.target.value} Hz`;
+                if (oscillator) {
+                    oscillator.frequency.value = e.target.value;
+                }
+            });
+
+            // Update amplitude display
+            document.getElementById('amplitude').addEventListener('input', (e) => {
+                document.getElementById('amplitude-value').textContent = `${e.target.value}%`;
+            });
+
+            // Start wave visualization
+            drawWave();
         });
     </script>
 </body>
